@@ -48,10 +48,10 @@ export default function Home() {
       features: ["Precision loading", "Climate control", "Damage protection", "Expert rigging"]
     },
     {
-      title: "Wind Turbine Transport",
-      description: "Transportation of wind turbine components including blades, towers, and nacelles.",
-      icon: "🌪️",
-      features: ["Blade transport", "Tower sections", "Nacelle transport", "Site coordination"]
+      title: "Airport & Aircraft Transport",
+      description: "Specialized transportation services for airport equipment, aircraft components, and aviation infrastructure.",
+      icon: "✈️",
+      features: ["Aircraft components", "Ground support equipment", "Aviation infrastructure", "Airport coordination"]
     }
   ];
 

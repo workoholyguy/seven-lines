@@ -40,7 +40,7 @@ export default function Footer() {
               <li><a href="/services" className="text-gray-300 hover:text-yellow-400 transition-colors">RGN Superloads</a></li>
               <li><a href="/services" className="text-gray-300 hover:text-yellow-400 transition-colors">Heavy Equipment</a></li>
               <li><a href="/services" className="text-gray-300 hover:text-yellow-400 transition-colors">Industrial Machinery</a></li>
-              <li><a href="/services" className="text-gray-300 hover:text-yellow-400 transition-colors">Wind Turbines</a></li>
+                              <li><a href="/services" className="text-gray-300 hover:text-yellow-400 transition-colors">Airport & Aircraft</a></li>
             </ul>
           </div>
         </div>

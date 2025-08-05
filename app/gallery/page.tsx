@@ -9,11 +9,11 @@ export default function Gallery() {
   const projects = [
     {
       id: 1,
-      title: "Wind Turbine Transport",
-      category: "wind",
-      description: "Transportation of wind turbine blades and components to wind farm in Texas",
-      image: "/gallery/wind-turbine-1.jpg",
-      location: "Texas Wind Farm"
+      title: "Airport Equipment Transport",
+      category: "aviation",
+      description: "Transportation of airport equipment and aircraft components to maintenance facilities",
+      image: "/gallery2.jpg",
+      location: "Cleveland Hopkins International Airport"
     },
     {
       id: 2,
@@ -83,7 +83,7 @@ export default function Gallery() {
 
   const filters = [
     { id: 'all', label: 'All Projects' },
-    { id: 'wind', label: 'Wind Energy' },
+    { id: 'aviation', label: 'Aviation' },
     { id: 'equipment', label: 'Construction Equipment' },
     { id: 'industrial', label: 'Industrial Machinery' },
     { id: 'oil-gas', label: 'Oil & Gas' },
@@ -112,7 +112,7 @@ export default function Gallery() {
               Showcasing Our Heavy Haul Transportation Projects
             </p>
             <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-              From Wind Turbines to Industrial Machinery • Nationwide Coverage • RGN Superloads
+              From Airport Equipment to Industrial Machinery • Nationwide Coverage • RGN Superloads
             </p>
           </div>
         </div>
