@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -78,20 +79,26 @@ export default function ContactForm() {
     "RGN Superload Transport",
     "Heavy Equipment Hauling",
     "Industrial Machinery",
-            "Airport & Aircraft Transport",
+    "Airport & Aircraft Transport",
     "Oil & Gas Equipment",
     "Military & Government",
     "Other"
   ];
 
   return (
-    <section className="h-screen bg-gray-900 text-white flex items-center justify-center snap-start scroll-mt-20" id="get-in-touch">
+    <section className="h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white flex items-center justify-center snap-start scroll-mt-20" id="get-in-touch">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <motion.div 
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">
                 Get In Touch
               </h2>
               <p className="text-xl text-gray-300 mb-8">
@@ -100,28 +107,41 @@ export default function ContactForm() {
             </div>
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-4">
+                <motion.div 
+                  key={index} 
+                  initial={{ x: -30, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-4 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-600/30 hover:border-blue-500/50 transition-all duration-300"
+                >
                   <div className="text-3xl">{info.icon}</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">{info.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2">{info.title}</h3>
                     <div className="space-y-1">
                       {info.details.map((detail, detailIndex) => (
                         <p key={detailIndex} className="text-gray-300">{detail}</p>
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="bg-white text-gray-900 rounded-xl p-8">
-            <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+          <motion.div 
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-slate-800/30 backdrop-blur-sm text-white rounded-2xl p-8 border border-slate-600/30 shadow-2xl shadow-blue-500/25"
+          >
+            <h3 className="text-2xl font-bold mb-6 text-white">Send Us a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -131,12 +151,12 @@ export default function ContactForm() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
                     placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -146,7 +166,7 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -154,7 +174,7 @@ export default function ContactForm() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                     Phone Number
                   </label>
                   <input
@@ -163,12 +183,12 @@ export default function ContactForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
                     placeholder="(937) 555-0123"
                   />
                 </div>
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
                     Service Interest
                   </label>
                   <select
@@ -176,7 +196,7 @@ export default function ContactForm() {
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white backdrop-blur-sm transition-all duration-300"
                   >
                     <option value="">Select a service</option>
                     {serviceOptions.map((service, index) => (
@@ -187,7 +207,7 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message *
                 </label>
                 <textarea
@@ -197,20 +217,22 @@ export default function ContactForm() {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
                   placeholder="Tell us about your transportation needs..."
                 />
               </div>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-yellow-500 text-gray-900 py-3 px-6 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-blue-400/30"
               >
                 {isSubmitting ? 'Sending Message...' : 'Send Message'}
-              </button>
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
