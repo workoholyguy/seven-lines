@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -318,13 +319,12 @@ export default function Gallery() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 bg-cover bg-center">
-          <img 
+          <Image 
             src="/gallery1.jpg"
             alt="Gallery Background"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
+            fill
+            className="object-cover"
+            priority
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-slate-900/60 to-black/70"></div>
@@ -446,7 +446,7 @@ export default function Gallery() {
               exit="hidden"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              {filteredProjects.map((project, index) => (
+              {filteredProjects.map((project) => (
                 <motion.div
                   key={project.id}
                   variants={itemVariants}
@@ -460,13 +460,11 @@ export default function Gallery() {
                   <div className="relative h-64 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-700/40 to-gray-800/40"></div>
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-slate-800/20"></div>
-                    <img 
+                    <Image 
                       src={project.image}
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
+                      fill
+                      className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                     
@@ -655,10 +653,11 @@ export default function Gallery() {
               <div className="flex flex-col lg:flex-row h-full">
                 {/* Image Section */}
                 <div className="relative lg:w-2/3 h-64 lg:h-auto">
-                  <img
+                  <Image
                     src={selectedProject.image}
                     alt={selectedProject.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   

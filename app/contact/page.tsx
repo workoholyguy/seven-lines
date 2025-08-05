@@ -13,7 +13,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-              Get in touch with our team of heavy haul transportation experts. We're here to help with your specialized transport needs.
+              Get in touch with our team of heavy haul transportation experts. We&apos;re here to help with your specialized transport needs.
             </p>
           </div>
         </div>

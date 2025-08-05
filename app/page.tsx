@@ -2,21 +2,7 @@
 
 import { useState, useRef } from 'react';
 import ContactForm from './components/ContactForm';
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  details: {
-    location: string;
-    equipment: string;
-    weight: string;
-    timeline: string;
-    challenges: string;
-  };
-}
+import NextImage from 'next/image';
 
 export default function Home() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
@@ -196,10 +182,11 @@ export default function Home() {
                         {galleryProjects.map((project, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="h-48 relative overflow-hidden">
-                  <img
+                  <NextImage
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
