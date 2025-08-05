@@ -47,18 +47,35 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert('Thank you for your message! We will get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        alert(`Error: ${result.error || 'Failed to send message. Please try again.'}`);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -147,7 +164,7 @@ export default function Home() {
     {
       icon: "✉️",
       title: "Email Us",
-      details: ["7linesinc@gmail.com", "Dispatch Available", "Quote Requests Welcome"]
+      details: ["the7linesinc@gmail.com", "Dispatch Available", "Quote Requests Welcome"]
     }
   ];
 
