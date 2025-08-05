@@ -342,7 +342,7 @@ export default function Gallery() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-6xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-blue-400 via-slate-300 to-white bg-clip-text text-transparent"
           >
-            Project Gallery
+            Our Fleet & Projects
           </motion.h1>
           <motion.p 
             initial={{ y: 30, opacity: 0 }}
@@ -350,7 +350,7 @@ export default function Gallery() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-2xl md:text-3xl text-gray-200 mb-8 font-light"
           >
-            Showcasing Excellence in Heavy Haul Transportation
+            Showcasing Our Fleet & Excellence in Heavy Haul Transportation
           </motion.p>
           <motion.div 
             initial={{ y: 30, opacity: 0 }}

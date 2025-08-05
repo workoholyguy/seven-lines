@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import ContactForm from './components/ContactForm';
 import NextImage from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Home() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
@@ -86,12 +87,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-slate-800 to-black">
-      <main className="h-full overflow-y-auto scroll-smooth snap-y snap-mandatory">
+    <div className="bg-slate-900/95 bg-gradient-to-br from-gray-900 via-slate-800 to-black">
+      <div className="overflow-y-auto scroll-smooth">
         {/* Hero Section - Full Screen */}
         <section 
           ref={heroRef}
-          className="h-screen relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden pt-0 snap-start"
+          className="h-screen relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden pt-0"
         >
           {/* Background Image */}
           <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/gallery15.jpg)' }}></div>
@@ -147,13 +148,15 @@ export default function Home() {
                 >
                   Get Quote
                 </motion.button>
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="border-2 border-blue-400/50 text-blue-400 px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-400/10 backdrop-blur-sm transition-all duration-300"
-                >
-                  View Fleet
-                </motion.button>
+                <Link href="/gallery">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="border-2 border-blue-400/50 text-blue-400 px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-400/10 backdrop-blur-sm transition-all duration-300" 
+                  >
+                    View Fleet
+                  </motion.button>
+                </Link>
               </motion.div>
             </div>
           </motion.div>
@@ -164,7 +167,7 @@ export default function Home() {
         {/* Services Section - Full Screen */}
         <section 
           ref={servicesRef}
-          className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center snap-start"
+          className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 
@@ -214,7 +217,7 @@ export default function Home() {
         {/* Gallery Section */}
         <section 
           ref={galleryRef}
-          className="bg-gradient-to-b from-slate-800 to-gray-900 py-5 snap-start"
+                      className="bg-gradient-to-b from-slate-800 to-gray-900 py-5"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 
@@ -299,16 +302,15 @@ export default function Home() {
                               <p className="text-sm text-gray-300">{project.details.challenges}</p>
                             </div>
                           </div>
-                          <motion.button 
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-2 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30" 
-                            onClick={() => {
-                              document.getElementById('get-in-touch')?.scrollIntoView({ behavior: 'smooth' });
-                            }}
-                          > 
-                            Get Quote for Similar Project
-                          </motion.button>
+                          <Link href="/contact">
+                            <motion.button 
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-2 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30" 
+                            > 
+                              Get Quote for Similar Project
+                            </motion.button>
+                          </Link>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -333,7 +335,7 @@ export default function Home() {
         {/* Contact Form Section - Full Screen */}
         <ContactForm />
 
-      </main>
+      </div>
     </div>
   );
 }

@@ -34,9 +34,9 @@ export default function About() {
   ];
 
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-gradient-to-br from-gray-900 via-slate-800 to-black">
+    <div className="bg-gradient-to-br from-gray-900 via-slate-800 to-black">
       {/* Hero Section - With Background Image */}
-      <section className="h-screen snap-end relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden">
+      <section className="h-screen relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -83,7 +83,7 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="h-screen snap-end bg-gradient-to-br from-slate-800 via-gray-900 to-black">
+      <section className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black">
         <div className="h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -127,7 +127,7 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="h-screen snap-end bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white">
+      <section className="h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white">
         <div className="h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <motion.div 
@@ -157,7 +157,7 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="h-screen snap-end bg-gradient-to-br from-slate-800 via-gray-900 to-black">
+      <section className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black">
         <div className="h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <motion.div 
@@ -196,7 +196,7 @@ export default function About() {
       </section>
 
       {/* CTA Section - With Background Image */}
-      <section className="h-screen snap-end relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden">
+      <section className="h-screen relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

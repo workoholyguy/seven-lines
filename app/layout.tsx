@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Seven Lines Trucking - RGN Superload Transport",
@@ -21,11 +22,14 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
       </head>
       <body
-        className="antialiased"
+        className="antialiased bg-slate-900/95 min-h-screen flex flex-col"
       >
         <Header />
-        {children}
+        <main className="flex-1">
+          {children}
+        </main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
