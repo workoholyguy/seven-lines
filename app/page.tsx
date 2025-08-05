@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 
-interface GalleryProject {
+interface Project {
   id: number;
   title: string;
   category: string;
@@ -88,7 +88,7 @@ export default function Home() {
     }
   ];
 
-  const galleryProjects: GalleryProject[] = [
+  const galleryProjects = [
     {
       id: 1,
       title: "Airport Equipment Transport",
@@ -327,7 +327,7 @@ export default function Home() {
       {/* Contact Form Section - Full Screen */}
       <section 
         ref={contactRef}
-        className="h-screen bg-gray-900 text-white flex items-center justify-center snap-start" 
+        className="h-screen bg-gray-900 text-white flex items-center justify-center snap-start scroll-mt-20" 
         id='get-in-touch'
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -460,7 +460,7 @@ export default function Home() {
       </section>
 
       {/* Footer Section - Content Based */}
-      <section className="bg-gray-800 text-white py-20 snap-end">
+      <section className="bg-gray-800 text-white py-5 snap-end">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
