@@ -1,4 +1,4 @@
-import Image from 'next/image';
+
 
 export default function About() {
   const teamMembers = [
@@ -87,13 +87,13 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Founded in 2003, Seven Lines Trucking began with a simple mission: to provide exceptional heavy haul transportation services across America. What started as a small family operation has grown into one of the nation's most trusted trucking companies.
+                Founded in 2003, Seven Lines Trucking began with a simple mission: to provide exceptional heavy haul transportation services across America. What started as a small family operation has grown into one of the nation&apos;s most trusted trucking companies.
               </p>
               <p className="text-lg text-gray-600 mb-6">
                 Our commitment to safety, reliability, and outstanding customer service has earned us the trust of hundreds of satisfied clients. We believe that every load deserves the highest level of care and attention.
               </p>
               <p className="text-lg text-gray-600">
-                Today, we continue to push the boundaries of what's possible in heavy haul transportation, always staying true to our core values of safety, integrity, and customer satisfaction.
+                Today, we continue to push the boundaries of what&apos;s possible in heavy haul transportation, always staying true to our core values of safety, integrity, and customer satisfaction.
               </p>
             </div>
             <div className="bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-xl p-8">
@@ -181,7 +181,7 @@ export default function About() {
             Ready to Work With Us?
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-            Let's discuss your transportation needs and see how we can help move your cargo safely and efficiently across America.
+            Let&apos;s discuss your transportation needs and see how we can help move your cargo safely and efficiently across America.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button className="bg-yellow-500 text-gray-900 px-10 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors duration-200">
