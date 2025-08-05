@@ -15,18 +15,18 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <header className="fixed top-3 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
+          <div className="flex-shrink-0 flex items-center h-full">
+            <Link href="/" className="flex items-center h-full">
               <Image
-                src="/logo.svg"
+                src="/FullLogo7Lines.png"
                 alt="Seven Lines Logo"
                 width={120}
                 height={40}
-                className="h-10 w-auto"
+                className="h-20 w-auto max-h-full object-contain"
                 priority
               />
             </Link>
