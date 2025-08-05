@@ -2,6 +2,21 @@
 
 import { useState } from 'react';
 
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  details: {
+    location: string;
+    equipment: string;
+    weight: string;
+    timeline: string;
+    challenges: string;
+  };
+}
+
 export default function Home() {
   const [formData, setFormData] = useState({
     name: '',
@@ -12,6 +27,7 @@ export default function Home() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -68,22 +84,46 @@ export default function Home() {
 
   const galleryProjects = [
     {
-      title: "Wind Turbine Transport",
-      category: "Wind Energy",
-      description: "Transportation of wind turbine blades and components to wind farm in Texas",
-      image: "/gallery1.jpg"
+      id: 1,
+      title: "Airport Equipment Transport",
+      category: "Aviation",
+      description: "Specialized transportation of airport equipment and aviation machinery",
+      image: "/gallery2.jpg",
+      details: {
+        location: "Cleveland Hopkins International Airport",
+        equipment: "Baggage handling systems, Ground support equipment",
+        weight: "Up to 50,000 lbs",
+        timeline: "3-5 days",
+        challenges: "Precision loading, Airport security clearance, Time-sensitive delivery"
+      }
     },
     {
+      id: 2,
       title: "Construction Equipment",
       category: "Heavy Equipment",
       description: "Heavy construction equipment transport including excavators and bulldozers",
-      image: "/gallery1.jpg"
+      image: "/gallery6.jpg",
+      details: {
+        location: "Multiple construction sites across Ohio",
+        equipment: "Excavators, Bulldozers, Cranes, Loaders",
+        weight: "Up to 80,000 lbs",
+        timeline: "1-3 days",
+        challenges: "Oversized load permits, Route planning, Site access coordination"
+      }
     },
     {
+      id: 3,
       title: "Industrial Machinery",
       category: "Industrial",
       description: "Large industrial machinery transport for manufacturing facility",
-      image: "/gallery1.jpg"
+      image: "/gallery14.jpg",
+      details: {
+        location: "Manufacturing facility in Michigan",
+        equipment: "Production line machinery, Industrial presses",
+        weight: "Up to 120,000 lbs",
+        timeline: "5-7 days",
+        challenges: "Fragile equipment handling, Climate-controlled transport, Factory floor access"
+      }
     }
   ];
 
@@ -135,10 +175,12 @@ export default function Home() {
             <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
               Based in Dayton, Ohio • Nationwide Coverage • Heavy Haul Specialists
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="bg-yellow-500 text-gray-900 px-10 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors duration-200">
-                Get Quote
-              </button>
+                          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <button className="bg-yellow-500 text-gray-900 px-10 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-colors duration-200" onClick={() => {
+                  document.getElementById('get-in-touch')?.scrollIntoView({ behavior: 'smooth' });
+                }}>
+                  Get Quote
+                </button>
               <button className="border-2 border-white text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-gray-900 transition-colors duration-200">
                 View Fleet
               </button>
@@ -182,8 +224,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section - Full Screen */}
-      <section className="h-screen bg-gray-50 flex items-center justify-center">
+      {/* Gallery Section */}
+      <section className="bg-gray-50 py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -193,13 +235,16 @@ export default function Home() {
               Showcasing our expertise in heavy haul transportation
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {galleryProjects.map((project, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="h-48 bg-gradient-to-br from-yellow-100 to-yellow-200 flex items-center justify-center">
-                  <div className="text-6xl text-yellow-600 opacity-20">
-                    {index + 1}
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                        {galleryProjects.map((project, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div className="h-48 relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300"></div>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
@@ -209,8 +254,52 @@ export default function Home() {
                     </span>
                   </div>
                   <p className="text-gray-600 mb-4">{project.description}</p>
-                  <button className="w-full bg-yellow-500 text-gray-900 py-2 px-4 rounded-lg font-medium hover:bg-yellow-400 transition-colors duration-200">
-                    View Details
+                  
+                  {/* Expandable Details */}
+                  {expandedProject === project.id && (
+                    <div className="border-t border-gray-200 pt-4 mt-4 animate-in slide-in-from-top-2 duration-300">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-2">Project Details</h4>
+                          <div className="space-y-2 text-sm">
+                            <div>
+                              <span className="font-medium text-gray-700">Location:</span>
+                              <p className="text-gray-600">{project.details.location}</p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-gray-700">Equipment:</span>
+                              <p className="text-gray-600">{project.details.equipment}</p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-gray-700">Weight:</span>
+                              <p className="text-gray-600">{project.details.weight}</p>
+                            </div>
+                            <div>
+                              <span className="font-medium text-gray-700">Timeline:</span>
+                              <p className="text-gray-600">{project.details.timeline}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900 mb-2">Key Challenges</h4>
+                          <p className="text-sm text-gray-600">{project.details.challenges}</p>
+                        </div>
+                      </div>
+                      <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200" onClick={() => {
+                        document.getElementById('get-in-touch')?.scrollIntoView({ behavior: 'smooth' });
+                      }}> 
+                        Get Quote for Similar Project
+                      </button>
+                    </div>
+                  )}
+                  
+                  <button 
+                    onClick={() => {
+                      setExpandedProject(expandedProject === project.id ? null : project.id);
+                    }}
+                    className="w-full bg-yellow-500 text-gray-900 py-2 px-4 rounded-lg font-medium hover:bg-yellow-400 transition-colors duration-200"
+                  >
+                    {expandedProject === project.id ? 'Hide Details' : 'View Details'}
                   </button>
                 </div>
               </div>
@@ -220,7 +309,7 @@ export default function Home() {
       </section>
 
       {/* Contact Form Section - Full Screen */}
-      <section className="h-screen bg-gray-900 text-white flex items-center justify-center">
+      <section className="h-screen bg-gray-900 text-white flex items-center justify-center pt-20" id='get-in-touch'>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
@@ -350,8 +439,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer Section - Full Screen */}
-      <section className="h-screen bg-gray-800 text-white flex items-center justify-center">
+      {/* Footer Section */}
+      <section className="bg-gray-800 text-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
@@ -404,6 +493,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
     </div>
   );
 }
