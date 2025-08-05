@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 interface Project {
   id: number;
@@ -28,6 +28,12 @@ export default function Home() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
+
+  // Create refs for each section
+  const heroRef = useRef<HTMLElement>(null);
+  const servicesRef = useRef<HTMLElement>(null);
+  const galleryRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -156,10 +162,14 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section - Full Screen */}
-      <section className="h-screen relative bg-gradient-to-r from-gray-900 to-gray-700 text-white overflow-hidden pt-0">
-        {/* Background Image */}
+    <div className="h-screen overflow-hidden bg-white">
+      <main className="h-full overflow-y-auto scroll-smooth snap-y snap-mandatory">
+                {/* Hero Section - Full Screen */}
+        <section 
+          ref={heroRef}
+          className="h-screen relative bg-gradient-to-r from-gray-900 to-gray-700 text-white overflow-hidden pt-0 snap-start"
+        >
+          {/* Background Image */}
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/gallery15.jpg)' }}></div>
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-700/80"></div>
@@ -192,7 +202,10 @@ export default function Home() {
       </section>
 
       {/* Services Section - Full Screen */}
-      <section className="h-screen bg-white flex items-center justify-center">
+      <section 
+        ref={servicesRef}
+        className="h-screen bg-white flex items-center justify-center snap-start"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -225,7 +238,10 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section className="bg-gray-50 py-5">
+      <section 
+        ref={galleryRef}
+        className="bg-gray-50 py-5 snap-start"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
@@ -309,7 +325,11 @@ export default function Home() {
       </section>
 
       {/* Contact Form Section - Full Screen */}
-      <section className="h-screen bg-gray-900 text-white flex items-center justify-center pt-20" id='get-in-touch'>
+      <section 
+        ref={contactRef}
+        className="h-screen bg-gray-900 text-white flex items-center justify-center snap-start" 
+        id='get-in-touch'
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
@@ -439,8 +459,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <section className="bg-gray-800 text-white py-10">
+      {/* Footer Section - Content Based */}
+      <section className="bg-gray-800 text-white py-20 snap-end">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
@@ -493,8 +513,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
-    </div>
-  );
+        </main>
+      </div>
+    );
 }
