@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Seven Lines Trucking - RGN Superload Transport",
@@ -26,7 +20,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> */}
       </head>
       <body
-        className={`${inter.className} antialiased`}
+        className="antialiased"
       >
         <Header />
         {children}
