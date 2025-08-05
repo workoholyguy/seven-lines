@@ -43,17 +43,17 @@ export default function Contact() {
     {
       icon: "📍",
       title: "Visit Us",
-      details: ["456 Trucking Way", "Dayton, OH 45402", "United States"]
+      details: ["2128 Division Ave", "Dayton, OH", "United States"]
     },
     {
       icon: "📞",
       title: "Call Us",
-      details: ["+1 (937) 555-0123", "+1 (937) 555-0124", "24/7 Dispatch Available"]
+      details: ["(937) 206-3308", "+1 (937) 367-0843", "24/7 Dispatch Available"]
     },
     {
       icon: "✉️",
       title: "Email Us",
-      details: ["dispatch@sevenlines.com", "sales@sevenlines.com", "info@sevenlines.com"]
+      details: ["7linesinc@gmail.com", "Dispatch Available", "Quote Requests Welcome"]
     }
   ];
 
@@ -210,7 +210,7 @@ export default function Contact() {
                   <div className="text-center">
                     <div className="text-6xl mb-4">🗺️</div>
                     <p className="text-gray-700 font-medium">Interactive Map</p>
-                    <p className="text-gray-600 text-sm">456 Trucking Way, Dayton, OH</p>
+                    <p className="text-gray-600 text-sm">2128 Division Ave, Dayton, OH</p>
                   </div>
                 </div>
               </div>
@@ -241,6 +241,22 @@ export default function Contact() {
                 <button className="bg-yellow-500 text-gray-900 px-6 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200">
                   Emergency Dispatch
                 </button>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Follow Us</h3>
+                <div className="flex space-x-4">
+                  <a href="https://www.instagram.com/samlines.inc/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-lg hover:opacity-80 transition-opacity">
+                    <span className="text-2xl">📷</span>
+                  </a>
+                  <a href="tel:+19372063308" className="bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-colors">
+                    <span className="text-2xl">📞</span>
+                  </a>
+                  <a href="mailto:7linesinc@gmail.com" className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors">
+                    <span className="text-2xl">✉️</span>
+                  </a>
+                </div>
+                <p className="text-gray-600 text-sm mt-4">Connect with us on social media for updates and project highlights</p>
               </div>
             </div>
           </div>

@@ -93,17 +93,17 @@ export default function Home() {
     {
       icon: "📍",
       title: "Visit Us",
-      details: ["456 Trucking Way", "Dayton, OH 45402", "United States"]
+      details: ["2128 Division Ave", "Dayton, OH", "United States"]
     },
     {
       icon: "📞",
       title: "Call Us",
-      details: ["+1 (937) 555-0123", "+1 (937) 555-0124", "24/7 Dispatch Available"]
+      details: ["(937) 206-3308", "+1 (937) 367-0843", "24/7 Dispatch Available"]
     },
     {
       icon: "✉️",
       title: "Email Us",
-      details: ["dispatch@sevenlines.com", "sales@sevenlines.com", "info@sevenlines.com"]
+      details: ["7linesinc@gmail.com", "Dispatch Available", "Quote Requests Welcome"]
     }
   ];
 
@@ -120,13 +120,16 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Full Screen */}
-      <section className="h-screen relative bg-gradient-to-r from-gray-900 to-gray-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/40"></div>
+      <section className="h-screen relative bg-gradient-to-r from-gray-900 to-gray-700 text-white overflow-hidden pt-0">
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/gallery15.jpg)' }}></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-700/80"></div>
         <div className="relative h-full flex items-center justify-center">
           <div className="text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-5xl md:text-7xl font-bold mb-8">
               Seven Lines
-              <span className="block text-yellow-400 text-4xl md:text-6xl mt-4">Trucking</span>
+              <span className="block text-red-400 text-4xl md:text-6xl mt-4">Trucking</span>
             </h1>
             <p className="text-xl md:text-3xl text-gray-200 max-w-4xl mx-auto mb-12">
               Specialized RGN Superload Transportation Across America
@@ -360,15 +363,15 @@ export default function Home() {
                 Leading heavy haul transportation specialists since 2003. We provide reliable, safe, and efficient transportation solutions for oversized and overweight loads across America.
               </p>
               <div className="flex space-x-4">
-                <div className="bg-yellow-500 text-gray-900 p-3 rounded-lg">
-                  <span className="text-2xl">🚛</span>
-                </div>
-                <div className="bg-yellow-500 text-gray-900 p-3 rounded-lg">
+                <a href="tel:+19372063308" className="bg-yellow-500 text-gray-900 p-3 rounded-lg hover:bg-yellow-400 transition-colors">
                   <span className="text-2xl">📞</span>
-                </div>
-                <div className="bg-yellow-500 text-gray-900 p-3 rounded-lg">
+                </a>
+                <a href="mailto:7linesinc@gmail.com" className="bg-yellow-500 text-gray-900 p-3 rounded-lg hover:bg-yellow-400 transition-colors">
                   <span className="text-2xl">✉️</span>
-                </div>
+                </a>
+                <a href="https://www.instagram.com/samlines.inc/" target="_blank" rel="noopener noreferrer" className="bg-yellow-500 text-gray-900 p-3 rounded-lg hover:bg-yellow-400 transition-colors">
+                  <span className="text-2xl">📷</span>
+                </a>
               </div>
             </div>
 
@@ -398,7 +401,7 @@ export default function Home() {
           {/* Bottom Footer */}
           <div className="border-t border-gray-700 mt-12 pt-8 text-center">
             <p className="text-gray-400">
-              © 2024 Seven Lines Trucking. All rights reserved. | Based in Dayton, Ohio | Nationwide Coverage
+              © 2024 Seven Lines Trucking. All rights reserved. | 2128 Division Ave, Dayton, OH | Nationwide Coverage
             </p>
           </div>
         </div>
