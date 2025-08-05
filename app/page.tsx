@@ -113,8 +113,8 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-blue-400 via-slate-300 to-white bg-clip-text text-transparent"
               >
-                7 Lines
-                <span className="block text-red-400 text-4xl md:text-6xl mt-4">Trucking</span>
+              
+                <span className="block text-red-400 text-4xl md:text-6xl mt-4">Reliable Trucking Company</span>
               </motion.h1>
               <motion.p 
                 initial={{ y: 30, opacity: 0 }}
