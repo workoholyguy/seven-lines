@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 
-interface Project {
+interface GalleryProject {
   id: number;
   title: string;
   category: string;
@@ -88,7 +88,7 @@ export default function Home() {
     }
   ];
 
-  const galleryProjects = [
+  const galleryProjects: GalleryProject[] = [
     {
       id: 1,
       title: "Airport Equipment Transport",
