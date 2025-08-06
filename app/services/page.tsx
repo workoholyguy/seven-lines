@@ -7,7 +7,7 @@ export default function Services() {
     {
       title: "RGN Superload Transport",
       description: "Specialized transportation for oversized and overweight loads requiring removable gooseneck trailers. Perfect for construction equipment, industrial machinery, and large components.",
-      features: ["Up to 200,000 lbs capacity", "Nationwide coverage", "24/7 dispatch", "Permit coordination"],
+      features: ["Up to 20,000 lbs capacity", "Nationwide coverage", "24/7 dispatch", "Permit coordination"],
       image: "/gallery19.jpeg"
     },
     {

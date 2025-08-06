@@ -72,7 +72,7 @@ export default function Home() {
       title: "RGN Superload Transport",
       description: "Specialized transportation for oversized and overweight loads requiring removable gooseneck trailers.",
       icon: "🚛",
-      features: ["Up to 400,000 lbs capacity", "Nationwide coverage", "24/7 dispatch", "Permit coordination"]
+      features: ["Up to 40,000 lbs capacity", "Nationwide coverage", "24/7 dispatch", "Permit coordination"]
     },
     {
       title: "Heavy Equipment Hauling",
@@ -104,7 +104,7 @@ export default function Home() {
       details: {
         location: "Cleveland Hopkins International Airport",
         equipment: "Baggage handling systems, Ground support equipment",
-        weight: "Up to 350,000 lbs",
+        weight: "Up to 35,000 lbs",
         timeline: "3-5 days",
         challenges: "Precision loading, Airport security clearance, Time-sensitive delivery"
       }
@@ -118,7 +118,7 @@ export default function Home() {
       details: {
         location: "Multiple construction sites across Ohio",
         equipment: "Excavators, Bulldozers, Cranes, Loaders",
-        weight: "Up to 480,000 lbs",
+        weight: "Up to 48,000 lbs",
         timeline: "1-3 days",
         challenges: "Oversized load permits, Route planning, Site access coordination"
       }
@@ -132,7 +132,7 @@ export default function Home() {
       details: {
         location: "Manufacturing facility in Michigan",
         equipment: "Production line machinery, Industrial presses",
-        weight: "Up to 620,000 lbs",
+        weight: "Up to 62,000 lbs",
         timeline: "5-7 days",
         challenges: "Fragile equipment handling, Climate-controlled transport, Factory floor access"
       }
