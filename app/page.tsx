@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import ContactForm from './components/ContactForm';
+import Navigation from './components/Navigation';
 import NextImage from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -13,6 +14,15 @@ export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
   const galleryRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
+
+  // Define sections for navigation
+  const sections = [
+    { id: 'hero', label: 'Home', ref: heroRef },
+    { id: 'services', label: 'Services', ref: servicesRef },
+    { id: 'gallery', label: 'Projects', ref: galleryRef },
+    { id: 'contact', label: 'Contact', ref: contactRef }
+  ];
 
   const services = [
     {
@@ -88,8 +98,11 @@ export default function Home() {
 
   return (
     <div className="bg-slate-900/95 bg-gradient-to-br from-gray-900 via-slate-800 to-black">
-      <div className="overflow-y-auto scroll-smooth">
-        {/* Hero Section - Full Screen */}
+      {/* Navigation Component */}
+      <Navigation sections={sections} />
+      
+      <div className="snap-container">
+        {/* Hero Section - Reduced Height */}
         <section 
           ref={heroRef}
           className="h-screen relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden pt-0"
@@ -111,7 +124,7 @@ export default function Home() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-blue-400 via-slate-300 to-white bg-clip-text text-transparent"
+                className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-slate-300 to-white bg-clip-text text-transparent"
               >
               
                 <span className="block text-red-400 text-4xl md:text-6xl mt-4">Reliable Trucking Company</span>
@@ -120,7 +133,7 @@ export default function Home() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl md:text-3xl text-gray-200 max-w-4xl mx-auto mb-12"
+                className="text-xl md:text-3xl text-gray-200 max-w-4xl mx-auto mb-8"
               >
                 Specialized RGN Superload Transportation Across America
               </motion.p>
@@ -128,7 +141,7 @@ export default function Home() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto"
+                className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
               >
                 Based in Dayton, Ohio • Nationwide Coverage • Heavy Haul Specialists
               </motion.p>
@@ -161,13 +174,13 @@ export default function Home() {
             </div>
           </motion.div>
           {/* Truck silhouette overlay */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-gray-900 to-transparent"></div>
         </section>
 
-        {/* Services Section - Full Screen */}
+        {/* Services Section - Compact */}
         <section 
           ref={servicesRef}
-          className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center py-6"
+          className="min-h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center py-6"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 
@@ -175,16 +188,16 @@ export default function Home() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-12"
             >
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">
                 Our Services
               </h2>
-              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Comprehensive transportation solutions for heavy and oversized loads
               </p>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((service, index) => (
                 <motion.div 
                   key={index} 
@@ -192,16 +205,16 @@ export default function Home() {
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                  className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 text-center hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 border border-slate-600/30 hover:border-blue-500/50"
+                  whileHover={{ y: -8 }}
+                  className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 text-center hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 border border-slate-600/30 hover:border-blue-500/50"
                 >
-                  <div className="text-6xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-                  <p className="text-gray-300 mb-4">{service.description}</p>
-                  <ul className="space-y-2 text-sm text-gray-300">
+                  <div className="text-4xl mb-3">{service.icon}</div>
+                  <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
+                  <p className="text-gray-300 mb-3 text-sm">{service.description}</p>
+                  <ul className="space-y-1 text-xs text-gray-300">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center justify-center">
-                        <svg className="w-4 h-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-3 h-3 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         {feature}
