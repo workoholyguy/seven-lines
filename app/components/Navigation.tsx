@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 interface NavigationProps {
   sections: {
     id: string;
     label: string;
-    ref: React.RefObject<HTMLElement | null>;
+    ref: React.RefObject<HTMLElement>;
   }[];
 }
 
@@ -15,6 +15,9 @@ export default function Navigation({ sections }: NavigationProps) {
   const [activeSection, setActiveSection] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Memoize sections to prevent unnecessary re-renders
+  const memoizedSections = useMemo(() => sections, [sections]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +32,7 @@ export default function Navigation({ sections }: NavigationProps) {
       setLastScrollY(currentScrollY);
 
       // Determine active section
-      const sectionPositions = sections.map((section, index) => {
+      const sectionPositions = memoizedSections.map((section, index) => {
         const element = section.ref.current;
         if (!element) return { index, position: 0 };
         
@@ -50,13 +53,15 @@ export default function Navigation({ sections }: NavigationProps) {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, sections]);
+  }, [lastScrollY, memoizedSections]);
 
   const scrollToSection = (sectionRef: React.RefObject<HTMLElement>) => {
-    sectionRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -71,7 +76,7 @@ export default function Navigation({ sections }: NavigationProps) {
     >
       <div className="bg-slate-900/80 backdrop-blur-md border border-slate-600/30 rounded-full px-6 py-3 shadow-2xl shadow-black/50">
         <ul className="flex space-x-8">
-          {sections.map((section, index) => (
+          {memoizedSections.map((section, index) => (
             <li key={section.id}>
               <motion.button
                 whileHover={{ scale: 1.05 }}

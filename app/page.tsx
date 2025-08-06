@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import ContactForm from './components/ContactForm';
-import Navigation from './components/Navigation';
 import ScrollIndicator from './components/ScrollIndicator';
 import ScrollToTop from './components/ScrollToTop';
 import NextImage from 'next/image';
@@ -14,18 +13,18 @@ export default function Home() {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   // Create refs for each section
-  const heroRef = useRef<HTMLElement>(null);
-  const servicesRef = useRef<HTMLElement>(null);
-  const galleryRef = useRef<HTMLElement>(null);
-  const contactRef = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLElement>(null!);
+  const servicesRef = useRef<HTMLElement>(null!);
+  const galleryRef = useRef<HTMLElement>(null!);
+  const contactRef = useRef<HTMLElement>(null!);
 
   // Define sections for navigation
-  const sections = [
+  const sections = useMemo(() => [
     { id: 'hero', label: 'Home', ref: heroRef },
     { id: 'services', label: 'Services', ref: servicesRef },
     { id: 'gallery', label: 'Projects', ref: galleryRef },
     { id: 'contact', label: 'Contact', ref: contactRef }
-  ];
+  ], []);
 
   // Keyboard navigation
   useEffect(() => {

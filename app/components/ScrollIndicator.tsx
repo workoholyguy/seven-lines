@@ -1,19 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 interface ScrollIndicatorProps {
   sections: {
     id: string;
     label: string;
-    ref: React.RefObject<HTMLElement | null>;
+    ref: React.RefObject<HTMLElement>;
   }[];
 }
 
 export default function ScrollIndicator({ sections }: ScrollIndicatorProps) {
   const [currentSection, setCurrentSection] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Memoize sections to prevent unnecessary re-renders
+  const memoizedSections = useMemo(() => sections, [sections]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +29,7 @@ export default function ScrollIndicator({ sections }: ScrollIndicatorProps) {
       setScrollProgress(progress);
 
       // Determine current section
-      const sectionPositions = sections.map((section, index) => {
+      const sectionPositions = memoizedSections.map((section, index) => {
         const element = section.ref.current;
         if (!element) return { index, position: 0 };
         
@@ -47,7 +50,7 @@ export default function ScrollIndicator({ sections }: ScrollIndicatorProps) {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sections]);
+  }, [memoizedSections]);
 
   return (
     <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
@@ -65,16 +68,18 @@ export default function ScrollIndicator({ sections }: ScrollIndicatorProps) {
         
         {/* Section indicators */}
         <div className="flex flex-col space-y-3">
-          {sections.map((section, index) => (
+          {memoizedSections.map((section, index) => (
             <motion.button
               key={section.id}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => {
-                section.ref.current?.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                });
+                if (section.ref.current) {
+                  section.ref.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
               }}
               className={`relative w-3 h-3 rounded-full transition-all duration-300 ${
                 currentSection === index
