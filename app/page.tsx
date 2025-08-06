@@ -167,7 +167,7 @@ export default function Home() {
         {/* Services Section - Full Screen */}
         <section 
           ref={servicesRef}
-          className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center"
+          className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center py-6"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 

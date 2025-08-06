@@ -61,17 +61,27 @@ export default function ContactForm() {
     {
       icon: "📍",
       title: "Visit Us",
-      details: ["2128 Division Ave", "Dayton, OH", "United States"]
+      details: [
+        { text: "3560 Valley St, Dayton, OH 45424", action: "map", url: "https://maps.google.com/?q=3560+Valley+St+Dayton+OH" },
+      ]
     },
     {
       icon: "📞",
       title: "Call Us",
-      details: ["(937) 206-3308", "+1 (937) 367-0843", "24/7 Dispatch Available"]
+      details: [
+        { text: "(937) 206-3308", action: "tel", url: "tel:9372063308" },
+        { text: "+1 (937) 367-0843", action: "tel", url: "tel:+19373670843" },
+        { text: "24/7 Dispatch Available", action: "none" }
+      ]
     },
     {
       icon: "✉️",
       title: "Email Us",
-      details: ["the7linesinc@gmail.com", "Dispatch Available", "Quote Requests Welcome"]
+      details: [
+        { text: "the7linesinc@gmail.com", action: "email", url: "mailto:the7linesinc@gmail.com" },
+        { text: "Dispatch Available", action: "none" },
+        { text: "Quote Requests Welcome", action: "none" }
+      ]
     }
   ];
 
@@ -120,7 +130,25 @@ export default function ContactForm() {
                     <h3 className="text-xl font-bold text-white mb-2">{info.title}</h3>
                     <div className="space-y-1">
                       {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-gray-300">{detail}</p>
+                        <p key={detailIndex} className="text-gray-300">
+                          {detail.action === "none" ? (
+                            detail.text
+                          ) : (
+                            <a
+                              href={detail.url}
+                              target={detail.action === "map" ? "_blank" : "_self"}
+                              rel={detail.action === "map" ? "noopener noreferrer" : ""}
+                              className="text-blue-400 hover:text-blue-300 hover:underline transition-colors duration-200 cursor-pointer"
+                              title={
+                                detail.action === "tel" ? "Click to call" :
+                                detail.action === "email" ? "Click to email" :
+                                detail.action === "map" ? "Click to open in maps" : ""
+                              }
+                            >
+                              {detail.text}
+                            </a>
+                          )}
+                        </p>
                       ))}
                     </div>
                   </div>

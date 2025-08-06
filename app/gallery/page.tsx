@@ -32,7 +32,7 @@ export default function Gallery() {
       description: "Transportation of airport equipment and aircraft components to maintenance facilities",
       image: "/gallery34.jpg",
       location: "Cleveland Hopkins International Airport",
-      weight: "85,000 lbs",
+      weight: "285,000 lbs",
       distance: "450 miles"
     },
     {
@@ -42,7 +42,7 @@ export default function Gallery() {
       description: "Heavy construction equipment transport including excavators and bulldozers",
       image: "/gallery6.jpg",
       location: "Colorado Construction Site",
-      weight: "120,000 lbs",
+      weight: "320,000 lbs",
       distance: "320 miles"
     },
     {
@@ -52,7 +52,7 @@ export default function Gallery() {
       description: "Large industrial machinery transport for manufacturing facility",
       image: "/gallery29.jpeg",
       location: "Michigan Factory",
-      weight: "95,000 lbs",
+      weight: "295,000 lbs",
       distance: "280 miles"
     },
     {
@@ -62,7 +62,7 @@ export default function Gallery() {
       description: "Transportation of oil rig components to drilling site",
       image: "/gallery24.jpeg",
       location: "North Dakota Oil Field",
-      weight: "150,000 lbs",
+      weight: "450,000 lbs",
       distance: "600 miles"
     },
     {
@@ -72,7 +72,7 @@ export default function Gallery() {
       description: "Large bridge components transport for infrastructure project",
       image: "/gallery32.jpg",
       location: "Ohio Infrastructure Project",
-      weight: "180,000 lbs",
+      weight: "380,000 lbs",
       distance: "520 miles"
     },
     {
@@ -82,7 +82,7 @@ export default function Gallery() {
       description: "Heavy mining equipment transport to remote mining site",
       image: "/gallery7.jpg",
       location: "Wyoming Mining Site",
-      weight: "200,000 lbs",
+      weight: "400,000 lbs",
       distance: "750 miles"
     },
     {
@@ -92,7 +92,7 @@ export default function Gallery() {
       description: "Transport of aircraft components and parts",
       image: "/gallery26.jpeg",
       location: "Aircraft Manufacturing",
-      weight: "75,000 lbs",
+      weight: "375,000 lbs",
       distance: "290 miles"
     },
     {
@@ -102,7 +102,7 @@ export default function Gallery() {
       description: "Specialized transport of heavy machinery and industrial equipment",
       image: "/gallery21.jpeg",
       location: "Texas Industrial Complex",
-      weight: "140,000 lbs",
+      weight: "340,000 lbs",
       distance: "380 miles"
     },
     {
@@ -112,7 +112,7 @@ export default function Gallery() {
       description: "Transport of precision manufacturing equipment and machinery",
       image: "/gallery25.jpeg",
       location: "California Manufacturing Plant",
-      weight: "90,000 lbs",
+      weight: "390,000 lbs",
       distance: "320 miles"
     },
     {
@@ -122,7 +122,7 @@ export default function Gallery() {
       description: "Transport of pipeline construction equipment and materials",
       image: "/gallery18.jpeg",
       location: "Alaska Pipeline Project",
-      weight: "130,000 lbs",
+      weight: "330,000 lbs",
       distance: "680 miles"
     },
     {
@@ -132,7 +132,7 @@ export default function Gallery() {
       description: "Transport of highway construction equipment and materials",
       image: "/gallery14.jpg",
       location: "Interstate Highway Project",
-      weight: "170,000 lbs",
+      weight: "370,000 lbs",
       distance: "480 miles"
     },
     {
@@ -142,7 +142,7 @@ export default function Gallery() {
       description: "Transport of large excavation and mining equipment",
       image: "/gallery15.jpg",
       location: "Mining Operation Site",
-      weight: "190,000 lbs",
+      weight: "390,000 lbs",
       distance: "720 miles"
     },
     {
@@ -152,7 +152,7 @@ export default function Gallery() {
       description: "Transport of heavy crane equipment and lifting machinery",
       image: "/gallery18.jpeg",
       location: "Construction Site",
-      weight: "155,000 lbs",
+      weight: "355,000 lbs",
       distance: "440 miles"
     },
     {
@@ -162,7 +162,7 @@ export default function Gallery() {
       description: "Transport of factory equipment and production machinery",
       image: "/gallery19.jpeg",
       location: "Manufacturing Facility",
-      weight: "100,000 lbs",
+      weight: "300,000 lbs",
       distance: "290 miles"
     },
     {
@@ -172,7 +172,7 @@ export default function Gallery() {
       description: "Secure transport of armored vehicles and military equipment",
       image: "/gallery33.jpg",
       location: "Military Installation",
-      weight: "135,000 lbs",
+      weight: "335,000 lbs",
       distance: "460 miles"
     },
     {
@@ -182,7 +182,7 @@ export default function Gallery() {
       description: "Transport of bridge construction materials and equipment",
       image: "/gallery22.jpeg",
       location: "Bridge Construction Project",
-      weight: "175,000 lbs",
+      weight: "475,000 lbs",
       distance: "510 miles"
     },
     {
@@ -192,7 +192,7 @@ export default function Gallery() {
       description: "Transport of various heavy construction equipment",
       image: "/gallery26.jpeg",
       location: "Construction Project",
-      weight: "160,000 lbs",
+      weight: "560,000 lbs",
       distance: "470 miles"
     },
     {
@@ -202,7 +202,7 @@ export default function Gallery() {
       description: "Transport of industrial components and manufacturing equipment",
       image: "/gallery27.jpeg",
       location: "Industrial Complex",
-      weight: "105,000 lbs",
+      weight: "305,000 lbs",
       distance: "330 miles"
     },
     {
@@ -212,7 +212,7 @@ export default function Gallery() {
       description: "Transport of infrastructure construction equipment",
       image: "/gallery30.jpeg",
       location: "Infrastructure Project",
-      weight: "185,000 lbs",
+      weight: "485,000 lbs",
       distance: "540 miles"
     },
     {
@@ -222,7 +222,7 @@ export default function Gallery() {
       description: "Transport of construction machinery and equipment",
       image: "/gallery10.jpg",
       location: "Construction Site",
-      weight: "145,000 lbs",
+      weight: "345,000 lbs",
       distance: "420 miles"
     }
   ];

@@ -32,7 +32,7 @@ export default function Footer() {
               <motion.a 
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                href="mailto:7linesinc@gmail.com" 
+                href="mailto:the7linesinc@gmail.com" 
                 className="bg-gradient-to-r from-blue-600 to-slate-700 text-white p-2 rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30"
               >
                 <span className="text-lg">✉️</span>
