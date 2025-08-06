@@ -41,6 +41,7 @@ export async function POST(request: Request) {
     const info = await transporter.sendMail({
       from: `"Seven Lines Trucking" <${process.env.EMAIL_USER}>`,
       to: 'avidtechusa@gmail.com',
+      cc: 'the7linesinc@gmail.com',
       subject: `New Contact Form Submission - ${formData.name}`,
       text: emailContent,
     });
