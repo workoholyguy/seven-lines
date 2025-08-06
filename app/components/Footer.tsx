@@ -16,7 +16,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="col-span-1 md:col-span-2"
           >
-            <h3 className="text-lg font-bold mb-2 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">7 Lines Trucking</h3>
+            <h3 className="text-lg font-bold mb-2 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent italic">7 Lines Inc</h3>
             <p className="text-gray-300 mb-3 text-sm">
               Leading heavy haul transportation specialists since 2003.
             </p>
@@ -92,7 +92,7 @@ export default function Footer() {
           className="border-t border-slate-600/50 mt-4 pt-2 text-center"
         >
           <p className="text-gray-400 text-xs">
-            © 2024 Seven Lines Trucking. All rights reserved. | 2128 Division Ave, Dayton, OH | Nationwide Coverage
+            © 2024 Seven Lines Inc. All rights reserved. | 2128 Division Ave, Dayton, OH | Nationwide Coverage
           </p>
         </motion.div>
       </div>
