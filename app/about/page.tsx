@@ -83,7 +83,7 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black">
+      <section className="min-content bg-gradient-to-br from-slate-800 via-gray-900 to-black py-6">
         <div className="h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -127,7 +127,7 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white">
+      <section className="min-content bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white py-6">
         <div className="h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <motion.div 
@@ -135,7 +135,7 @@ export default function About() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 text-center"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center"
             >
               {stats.map((stat, index) => (
                 <motion.div 
@@ -145,10 +145,10 @@ export default function About() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05 }}
-                  className="transform transition-transform duration-300 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-600/30 hover:border-blue-500/50"
+                  className="transform transition-transform duration-300 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-slate-600/30 hover:border-blue-500/50 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px] flex flex-col justify-center"
                 >
-                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">{stat.number}</div>
-                  <div className="text-blue-100 text-lg sm:text-xl">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent leading-tight break-words">{stat.number}</div>
+                  <div className="text-blue-100 text-sm sm:text-base md:text-lg lg:text-xl leading-tight break-words">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>

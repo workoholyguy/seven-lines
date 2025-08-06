@@ -1,14 +1,17 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import ContactForm from './components/ContactForm';
 import Navigation from './components/Navigation';
+import ScrollIndicator from './components/ScrollIndicator';
+import ScrollToTop from './components/ScrollToTop';
 import NextImage from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Home() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   // Create refs for each section
   const heroRef = useRef<HTMLElement>(null);
@@ -23,6 +26,47 @@ export default function Home() {
     { id: 'gallery', label: 'Projects', ref: galleryRef },
     { id: 'contact', label: 'Contact', ref: contactRef }
   ];
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowDown' || event.key === 'PageDown') {
+        event.preventDefault();
+        const nextIndex = Math.min(currentSectionIndex + 1, sections.length - 1);
+        setCurrentSectionIndex(nextIndex);
+        sections[nextIndex].ref.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else if (event.key === 'ArrowUp' || event.key === 'PageUp') {
+        event.preventDefault();
+        const prevIndex = Math.max(currentSectionIndex - 1, 0);
+        setCurrentSectionIndex(prevIndex);
+        sections[prevIndex].ref.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        setCurrentSectionIndex(0);
+        sections[0].ref.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        const lastIndex = sections.length - 1;
+        setCurrentSectionIndex(lastIndex);
+        sections[lastIndex].ref.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentSectionIndex, sections]);
 
   const services = [
     {
@@ -99,13 +143,19 @@ export default function Home() {
   return (
     <div className="bg-slate-900/95 bg-gradient-to-br from-gray-900 via-slate-800 to-black">
       {/* Navigation Component */}
-      <Navigation sections={sections} />
+      {/* <Navigation sections={sections} /> */}
+      
+      {/* Scroll Indicator */}
+      <ScrollIndicator sections={sections} />
+      
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
       
       <div className="snap-container">
-        {/* Hero Section - Reduced Height */}
+        {/* Hero Section - Clipped from Bottom */}
         <section 
           ref={heroRef}
-          className="h-screen relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden pt-0"
+          className="snap-section h-[85vh] relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden pt-0"
         >
           {/* Background Image */}
           <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/gallery15.jpg)' }}></div>
@@ -173,6 +223,29 @@ export default function Home() {
               </motion.div>
             </div>
           </motion.div>
+          {/* Scroll indicator */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.5 }}
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          >
+            <div className="flex flex-col items-center text-blue-400">
+              <span className="text-sm font-medium mb-2">Scroll to explore</span>
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center"
+              >
+                <motion.div
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-1 h-3 bg-blue-400 rounded-full mt-2"
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+          
           {/* Truck silhouette overlay */}
           <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-gray-900 to-transparent"></div>
         </section>
@@ -180,7 +253,7 @@ export default function Home() {
         {/* Services Section - Compact */}
         <section 
           ref={servicesRef}
-          className="min-h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center py-6"
+          className="snap-section h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center p-0"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 
@@ -230,7 +303,7 @@ export default function Home() {
         {/* Gallery Section */}
         <section 
           ref={galleryRef}
-                      className="bg-gradient-to-b from-slate-800 to-gray-900 py-5"
+          className="snap-section min-content bg-gradient-to-b from-slate-800 to-gray-900 py-6"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 
@@ -346,7 +419,9 @@ export default function Home() {
         </section>
 
         {/* Contact Form Section - Full Screen */}
-        <ContactForm />
+        <section ref={contactRef} className="snap-section">
+          <ContactForm />
+        </section>
 
       </div>
     </div>

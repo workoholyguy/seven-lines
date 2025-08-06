@@ -96,9 +96,9 @@ export default function ContactForm() {
   ];
 
   return (
-    <section className="py-8 bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white" id="get-in-touch">
+    <section className="min-content py-4 bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white" id="get-in-touch">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Information */}
           <motion.div 
             initial={{ x: -50, opacity: 0 }}
@@ -108,14 +108,14 @@ export default function ContactForm() {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">
                 Get In Touch
               </h2>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-lg text-gray-300 mb-6">
                 Ready to move your load? Contact us for a free quote and consultation.
               </p>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.div 
                   key={index} 
@@ -123,14 +123,14 @@ export default function ContactForm() {
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-start space-x-4 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 border border-slate-600/30 hover:border-blue-500/50 transition-all duration-300"
+                  className="flex items-start space-x-3 bg-slate-800/30 backdrop-blur-sm rounded-xl p-4 border border-slate-600/30 hover:border-blue-500/50 transition-all duration-300"
                 >
-                  <div className="text-3xl">{info.icon}</div>
+                  <div className="text-2xl">{info.icon}</div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{info.title}</h3>
-                    <div className="space-y-1">
+                    <h3 className="text-lg font-bold text-white mb-1">{info.title}</h3>
+                    <div className="space-y-0.5">
                       {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-gray-300">
+                        <p key={detailIndex} className="text-sm text-gray-300">
                           {detail.action === "none" ? (
                             detail.text
                           ) : (
@@ -163,13 +163,13 @@ export default function ContactForm() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-slate-800/30 backdrop-blur-sm text-white rounded-2xl p-8 border border-slate-600/30 shadow-2xl shadow-blue-500/25"
+            className="bg-slate-800/30 backdrop-blur-sm text-white rounded-xl p-6 border border-slate-600/30 shadow-2xl shadow-blue-500/25"
           >
-            <h3 className="text-2xl font-bold mb-6 text-white">Send Us a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h3 className="text-xl font-bold mb-4 text-white">Send Us a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-xs font-medium text-gray-300 mb-1">
                     Full Name *
                   </label>
                   <input
@@ -179,12 +179,12 @@ export default function ContactForm() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
+                    className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600/50 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 text-sm"
                     placeholder="Your full name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-xs font-medium text-gray-300 mb-1">
                     Email Address *
                   </label>
                   <input
@@ -194,15 +194,15 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
+                    className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600/50 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 text-sm"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="phone" className="block text-xs font-medium text-gray-300 mb-1">
                     Phone Number
                   </label>
                   <input
@@ -211,12 +211,12 @@ export default function ContactForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
+                    className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600/50 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 text-sm"
                     placeholder="(937) 555-0123"
                   />
                 </div>
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="service" className="block text-xs font-medium text-gray-300 mb-1">
                     Service Interest
                   </label>
                   <select
@@ -224,7 +224,7 @@ export default function ContactForm() {
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white backdrop-blur-sm transition-all duration-300"
+                    className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600/50 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white backdrop-blur-sm transition-all duration-300 text-sm"
                   >
                     <option value="">Select a service</option>
                     {serviceOptions.map((service, index) => (
@@ -235,7 +235,7 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-xs font-medium text-gray-300 mb-1">
                   Message *
                 </label>
                 <textarea
@@ -244,8 +244,8 @@ export default function ContactForm() {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600/50 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300"
+                  rows={4}
+                  className="w-full px-3 py-2 bg-slate-700/50 border border-slate-600/50 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500/50 text-white placeholder-gray-400 backdrop-blur-sm transition-all duration-300 text-sm"
                   placeholder="Tell us about your transportation needs..."
                 />
               </div>
@@ -255,7 +255,7 @@ export default function ContactForm() {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-3 px-6 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-blue-400/30"
+                className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-2 px-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-blue-400/30 text-sm"
               >
                 {isSubmitting ? 'Sending Message...' : 'Send Message'}
               </motion.button>
