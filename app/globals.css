@@ -41,6 +41,53 @@ html {
   flex-direction: column;
 }
 
+/* Mobile: Remove snapping behavior */
+@media (max-width: 768px) {
+  .snap-container {
+    scroll-snap-type: none;
+    overflow-y: auto;
+    height: auto;
+    scroll-behavior: auto;
+  }
+
+  .snap-section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Mobile-specific improvements */
+  .snap-section {
+    padding: 2rem 0;
+    min-height: auto;
+  }
+
+  /* Improve touch scrolling on mobile */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Better mobile spacing */
+  .snap-container {
+    padding-bottom: 2rem;
+  }
+
+  /* Mobile: Remove horizontal animations and x-translations */
+  /* Disable horizontal scroll indicators on mobile */
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Ensure smooth mobile scrolling */
+  html,
+  body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+  }
+}
+
 /* Smooth scrolling for all browsers */
 html {
   scroll-behavior: smooth;

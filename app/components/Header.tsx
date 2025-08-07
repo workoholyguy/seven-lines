@@ -4,9 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -97,7 +99,7 @@ export default function Header() {
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.name}
-                    initial={{ x: -20, opacity: 0 }}
+                    initial={{ x: isMobile ? 0 : -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >

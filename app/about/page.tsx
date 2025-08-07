@@ -1,8 +1,10 @@
 "use client";
 import ContactForm from "../components/ContactForm";
 import { motion } from 'framer-motion';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export default function About() {
+  const isMobile = useIsMobile();
   const values = [
     {
       title: "Safety First",
@@ -88,7 +90,7 @@ export default function About() {
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div 
-                initial={{ x: -50, opacity: 0 }}
+                initial={{ x: isMobile ? 0 : -50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
@@ -107,7 +109,7 @@ export default function About() {
                 </p>
               </motion.div>
               <motion.div 
-                initial={{ x: 50, opacity: 0 }}
+                initial={{ x: isMobile ? 0 : 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}

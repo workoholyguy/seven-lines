@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export default function ContactForm() {
+  const isMobile = useIsMobile();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -101,7 +103,7 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Information */}
           <motion.div 
-            initial={{ x: -50, opacity: 0 }}
+            initial={{ x: isMobile ? 0 : -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -119,7 +121,7 @@ export default function ContactForm() {
               {contactInfo.map((info, index) => (
                 <motion.div 
                   key={index} 
-                  initial={{ x: -30, opacity: 0 }}
+                  initial={{ x: isMobile ? 0 : -30, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
@@ -159,7 +161,7 @@ export default function ContactForm() {
 
           {/* Contact Form */}
           <motion.div 
-            initial={{ x: 50, opacity: 0 }}
+            initial={{ x: isMobile ? 0 : 50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}

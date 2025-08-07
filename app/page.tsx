@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import NextImage from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useIsMobile, getAnimationVariants } from './hooks/useIsMobile';
 
 export default function Home() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
@@ -26,9 +27,12 @@ export default function Home() {
     { id: 'contact', label: 'Contact', ref: contactRef }
   ], []);
 
-  // Keyboard navigation
+  // Keyboard navigation (desktop only)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      // Only enable keyboard navigation on desktop (screen width > 768px)
+      if (window.innerWidth <= 768) return;
+      
       if (event.key === 'ArrowDown' || event.key === 'PageDown') {
         event.preventDefault();
         const nextIndex = Math.min(currentSectionIndex + 1, sections.length - 1);
@@ -154,7 +158,7 @@ export default function Home() {
         {/* Hero Section - Clipped from Bottom */}
         <section 
           ref={heroRef}
-          className="snap-section h-[85vh] relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden pt-0"
+          className="snap-section h-[85vh] md:h-[85vh] h-screen relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden pt-0"
         >
           {/* Background Image */}
           <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/gallery15.jpg)' }}></div>
@@ -252,7 +256,7 @@ export default function Home() {
         {/* Services Section - Compact */}
         <section 
           ref={servicesRef}
-          className="snap-section h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center p-0"
+          className="snap-section min-h-screen md:h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center p-0"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 
@@ -418,7 +422,7 @@ export default function Home() {
         </section>
 
         {/* Contact Form Section - Full Screen */}
-        <section ref={contactRef} className="snap-section">
+        <section ref={contactRef} className="snap-section min-h-screen">
           <ContactForm />
         </section>
 
