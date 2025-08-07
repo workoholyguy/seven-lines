@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useIsMobile } from '../hooks/useIsMobile';
+import { useIsMobile, getAnimationVariants } from '../hooks/useIsMobile';
 
 export default function ContactForm() {
   const isMobile = useIsMobile();
+  const variants = getAnimationVariants(isMobile);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -105,7 +106,7 @@ export default function ContactForm() {
           <motion.div 
             initial={{ x: isMobile ? 0 : -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: isMobile ? 0.2 : 0.8 }}
             viewport={{ once: true }}
             className="space-y-8"
           >
@@ -123,7 +124,7 @@ export default function ContactForm() {
                   key={index} 
                   initial={{ x: isMobile ? 0 : -30, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: isMobile ? 0.2 : 0.6, delay: isMobile ? 0 : index * 0.1 }}
                   viewport={{ once: true }}
                   className="flex items-start space-x-3 bg-slate-800/30 backdrop-blur-sm rounded-xl p-4 border border-slate-600/30 hover:border-blue-500/50 transition-all duration-300"
                 >
@@ -163,7 +164,7 @@ export default function ContactForm() {
           <motion.div 
             initial={{ x: isMobile ? 0 : 50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: isMobile ? 0.2 : 0.8 }}
             viewport={{ once: true }}
             className="bg-slate-800/30 backdrop-blur-sm text-white rounded-xl p-6 border border-slate-600/30 shadow-2xl shadow-blue-500/25"
           >
@@ -253,8 +254,8 @@ export default function ContactForm() {
               </div>
 
               <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={isMobile ? {} : { scale: 1.02 }}
+                whileTap={isMobile ? {} : { scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-2 px-4 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border border-blue-400/30 text-sm"

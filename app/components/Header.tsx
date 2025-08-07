@@ -4,11 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useIsMobile } from '../hooks/useIsMobile';
+import { useIsMobile, getAnimationVariants } from '../hooks/useIsMobile';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const variants = getAnimationVariants(isMobile);
 
   const navItems = [
     { name: 'Home', href: '/' },
@@ -53,8 +54,8 @@ export default function Header() {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={isMobile ? {} : { scale: 1.05 }}
+              whileTap={isMobile ? {} : { scale: 0.95 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-300 hover:text-blue-400 focus:outline-none focus:text-blue-400 transition-colors duration-200"
               aria-label="Toggle menu"
@@ -92,7 +93,7 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: isMobile ? 0.1 : 0.3 }}
               className="md:hidden overflow-hidden"
             >
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800/95 backdrop-blur-md border-t border-slate-600/30">
@@ -101,7 +102,7 @@ export default function Header() {
                     key={item.name}
                     initial={{ x: isMobile ? 0 : -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ duration: isMobile ? 0.1 : 0.3, delay: isMobile ? 0 : index * 0.1 }}
                   >
                     <Link
                       href={item.href}

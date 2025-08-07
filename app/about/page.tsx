@@ -1,10 +1,11 @@
 "use client";
 import ContactForm from "../components/ContactForm";
 import { motion } from 'framer-motion';
-import { useIsMobile } from '../hooks/useIsMobile';
+import { useIsMobile, getAnimationVariants } from '../hooks/useIsMobile';
 
 export default function About() {
   const isMobile = useIsMobile();
+  const variants = getAnimationVariants(isMobile);
   const values = [
     {
       title: "Safety First",
@@ -50,32 +51,32 @@ export default function About() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
         
         <motion.div 
-          initial={{ y: 50, opacity: 0 }}
+          initial={{ y: isMobile ? 0 : 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: isMobile ? 0.2 : 0.8 }}
           className="relative h-full flex items-center justify-center px-6 sm:px-8 lg:px-12"
         >
           <div className="text-center max-w-5xl mx-auto">
             <motion.h1 
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: isMobile ? 0 : 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: isMobile ? 0.2 : 0.8, delay: isMobile ? 0 : 0.2 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 lg:mb-10 leading-tight bg-gradient-to-r from-blue-400 via-slate-300 to-white bg-clip-text text-transparent"
             >
               About Seven Lines
             </motion.h1>
             <motion.p 
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: isMobile ? 0 : 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: isMobile ? 0.2 : 0.8, delay: isMobile ? 0 : 0.4 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-200 max-w-4xl mx-auto mb-8 sm:mb-10 lg:mb-12 leading-relaxed"
             >
               Leading Heavy Haul Transportation Since 2003
             </motion.p>
             <motion.p 
-              initial={{ y: 30, opacity: 0 }}
+              initial={{ y: isMobile ? 0 : 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: isMobile ? 0.2 : 0.8, delay: isMobile ? 0 : 0.6 }}
               className="text-base sm:text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Based in Dayton, Ohio • Nationwide Coverage • RGN Superload Specialists

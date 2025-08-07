@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { useIsMobile, getAnimationVariants } from './hooks/useIsMobile';
 
 export default function Home() {
+  const isMobile = useIsMobile();
+  const variants = getAnimationVariants(isMobile);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
@@ -167,46 +169,39 @@ export default function Home() {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
           
           <motion.div 
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            {...variants.slideUp}
             className="relative h-full flex items-center justify-center"
           >
             <div className="text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.h1 
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                {...variants.slideUp}
+                transition={{ ...variants.slideUp.transition, delay: isMobile ? 0 : 0.2 }}
                 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-slate-300 to-white bg-clip-text text-transparent"
               >
               
                 <span className="block text-red-400 text-4xl md:text-6xl mt-4">Reliable Trucking Company</span>
               </motion.h1>
               <motion.p 
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                {...variants.slideUp}
+                transition={{ ...variants.slideUp.transition, delay: isMobile ? 0 : 0.4 }}
                 className="text-xl md:text-3xl text-gray-200 max-w-4xl mx-auto mb-8"
               >
                 Specialized RGN Superload Transportation Across America
               </motion.p>
               <motion.p 
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                {...variants.slideUp}
+                transition={{ ...variants.slideUp.transition, delay: isMobile ? 0 : 0.6 }}
                 className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
               >
                 Based in Dayton, Ohio • Nationwide Coverage • Heavy Haul Specialists
               </motion.p>
               <motion.div 
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
+                {...variants.slideUp}
+                transition={{ ...variants.slideUp.transition, delay: isMobile ? 0 : 0.8 }}
                 className="flex flex-col sm:flex-row gap-6 justify-center"
               >
                 <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  {...variants.buttonScale}
                   className="bg-gradient-to-r from-blue-600 to-slate-700 text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30" 
                   onClick={() => {
                     document.getElementById('get-in-touch')?.scrollIntoView({ behavior: 'smooth' });
@@ -216,8 +211,7 @@ export default function Home() {
                 </motion.button>
                 <Link href="/gallery">
                   <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    {...variants.buttonScale}
                     className="border-2 border-blue-400/50 text-blue-400 px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-400/10 backdrop-blur-sm transition-all duration-300" 
                   >
                     View Fleet
@@ -228,20 +222,19 @@ export default function Home() {
           </motion.div>
           {/* Scroll indicator */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.5 }}
+            {...variants.fadeIn}
+            transition={{ ...variants.fadeIn.transition, delay: isMobile ? 0 : 1.5 }}
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           >
             <div className="flex flex-col items-center text-blue-400">
               <span className="text-sm font-medium mb-2">Scroll to explore</span>
               <motion.div
-                animate={{ y: [0, 10, 0] }}
+                animate={isMobile ? {} : { y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center"
               >
                 <motion.div
-                  animate={{ y: [0, 12, 0] }}
+                  animate={isMobile ? {} : { y: [0, 12, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                   className="w-1 h-3 bg-blue-400 rounded-full mt-2"
                 />
@@ -260,9 +253,8 @@ export default function Home() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 
-              initial={{ y: 50, opacity: 0 }}
+              {...variants.slideUp}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className="text-center mb-12"
             >
@@ -277,11 +269,11 @@ export default function Home() {
               {services.map((service, index) => (
                 <motion.div 
                   key={index} 
-                  initial={{ y: 50, opacity: 0 }}
+                  initial={{ y: isMobile ? 0 : 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  transition={{ duration: isMobile ? 0.2 : 0.8, delay: isMobile ? 0 : index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -8 }}
+                  whileHover={isMobile ? {} : { y: -8 }}
                   className="bg-slate-800/30 backdrop-blur-sm rounded-2xl p-6 text-center hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 border border-slate-600/30 hover:border-blue-500/50"
                 >
                   <div className="text-4xl mb-3">{service.icon}</div>
@@ -310,9 +302,9 @@ export default function Home() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div 
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: isMobile ? 0 : 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: isMobile ? 0.2 : 0.8 }}
               viewport={{ once: true }}
               className="text-center mb-16"
             >
@@ -327,11 +319,11 @@ export default function Home() {
               {galleryProjects.map((project, index) => (
                 <motion.div 
                   key={index} 
-                  initial={{ y: 50, opacity: 0 }}
+                  initial={{ y: isMobile ? 0 : 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  transition={{ duration: isMobile ? 0.2 : 0.8, delay: isMobile ? 0 : index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
+                  whileHover={isMobile ? {} : { y: -10 }}
                   className="bg-slate-800/30 backdrop-blur-sm rounded-2xl shadow-2xl shadow-blue-500/25 overflow-hidden hover:shadow-2xl hover:shadow-blue-500/40 transition-all duration-300 border border-slate-600/30 hover:border-blue-500/50"
                 >
                   <div className="h-48 relative overflow-hidden">
@@ -361,7 +353,7 @@ export default function Home() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
+                          transition={{ duration: isMobile ? 0.1 : 0.3 }}
                           className="border-t border-slate-600/50 pt-4 mt-4 overflow-hidden"
                         >
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -393,8 +385,8 @@ export default function Home() {
                           </div>
                           <Link href="/contact">
                             <motion.button 
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
+                              whileHover={isMobile ? {} : { scale: 1.05 }}
+                              whileTap={isMobile ? {} : { scale: 0.95 }}
                               className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-2 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30" 
                             > 
                               Get Quote for Similar Project
@@ -405,8 +397,8 @@ export default function Home() {
                     </AnimatePresence>
                     
                     <motion.button 
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={isMobile ? {} : { scale: 1.05 }}
+                      whileTap={isMobile ? {} : { scale: 0.95 }}
                       onClick={() => {
                         setExpandedProject(expandedProject === project.id ? null : project.id);
                       }}
