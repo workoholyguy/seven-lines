@@ -87,10 +87,13 @@ html {
     scroll-behavior: auto;
   }
 
-  /* Further reduce animations on mobile */
+  /* Disable all animations on mobile for all users */
   * {
-    animation-duration: 0.2s !important;
-    transition-duration: 0.2s !important;
+    animation: none !important;
+    animation-duration: 0s !important;
+    animation-iteration-count: 0 !important;
+    transition: none !important;
+    transition-duration: 0s !important;
   }
 
   /* Disable hover effects on mobile */
@@ -102,7 +105,7 @@ html {
   @media (prefers-reduced-motion: reduce) {
     * {
       animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
+      animation-iteration-count: 0 !important;
       transition-duration: 0.01ms !important;
     }
   }
