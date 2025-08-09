@@ -130,70 +130,66 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="min-content bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white py-6">
-        <div className="h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            <motion.div 
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center"
-            >
-              {stats.map((stat, index) => (
-                <motion.div 
-                  key={index} 
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                  className="transform transition-transform duration-300 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-slate-600/30 hover:border-blue-500/50 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px] flex flex-col justify-center"
-                >
-                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent leading-tight break-words">{stat.number}</div>
-                  <div className="text-blue-100 text-sm sm:text-base md:text-lg lg:text-xl leading-tight break-words">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-900 via-slate-800 to-black text-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <motion.div 
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center"
+          >
+            {stats.map((stat, index) => (
+              <motion.div 
+                key={index} 
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                className="transform transition-transform duration-300 bg-slate-800/30 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-slate-600/30 hover:border-blue-500/50 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px] flex flex-col justify-center"
+              >
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent leading-tight break-words">{stat.number}</div>
+                <div className="text-blue-100 text-sm sm:text-base md:text-lg lg:text-xl leading-tight break-words">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black">
-        <div className="h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            <motion.div 
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center mb-16 sm:mb-20 lg:mb-24"
-            >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">
-                Our Values
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                These core values guide everything we do and ensure we deliver the best possible experience for our clients.
-              </p>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
-              {values.map((value, index) => (
-                <motion.div 
-                  key={index} 
-                  initial={{ y: 50, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                  className="text-center bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform border border-slate-600/30 hover:border-blue-500/50"
-                >
-                  <div className="text-6xl sm:text-7xl mb-4">{value.icon}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">{value.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{value.description}</p>
-                </motion.div>
-              ))}
-            </div>
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-800 via-gray-900 to-black">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <motion.div 
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16 sm:mb-20 lg:mb-24"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">
+              Our Values
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              These core values guide everything we do and ensure we deliver the best possible experience for our clients.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
+            {values.map((value, index) => (
+              <motion.div 
+                key={index} 
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="text-center bg-slate-800/30 backdrop-blur-sm rounded-2xl p-8 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform border border-slate-600/30 hover:border-blue-500/50"
+              >
+                <div className="text-6xl sm:text-7xl mb-4">{value.icon}</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">{value.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{value.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
