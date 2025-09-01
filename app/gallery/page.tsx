@@ -66,6 +66,16 @@ export default function Gallery() {
       distance: "600 miles"
     },
     {
+      id: 5,
+      title: "Oil Rig Components",
+      category: "oil-gas",
+      description: "Transport of pipeline construction equipment and materials",
+      image: "/gallery35.jpg",
+      location: "South Dakota Oil Field",
+      weight: "115,000 lbs",
+      distance: "750 miles"
+    },
+    {
       id: 6,
       title: "Bridge Components",
       category: "infrastructure",
@@ -184,6 +194,16 @@ export default function Gallery() {
       location: "Bridge Construction Project",
       weight: "47,000 lbs",
       distance: "510 miles"
+    },
+    {
+      id: 23,
+      title: "Heavy Equipment Transport",
+category: "logistics",
+description: "A semi-truck hauling large industrial construction machinery on a lowboy trailer, likely for demolition or heavy earth-moving work.",     
+image: "/gallery36.jpg",
+location: "Seattle, WA (near The Home Depot and Port area)",
+weight: "82,000 lbs (estimated with equipment)",
+distance: "430 miles (regional haul estimate)",
     },
     {
       id: 26,
