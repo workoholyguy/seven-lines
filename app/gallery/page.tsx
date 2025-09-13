@@ -244,6 +244,26 @@ distance: "430 miles (regional haul estimate)",
       location: "Construction Site",
       weight: "45,000 lbs",
       distance: "420 miles"
+    },
+    {
+      id: 35,
+      title: "Crane Boom Transport",
+      category: "equipment",
+      description: "Superload transport of telescopic crane boom assembly",
+      image: "/gallery37.jpeg",
+      location: "Dallas, TX → Lowville, NY",
+      weight: "77,000 lbs",
+      distance: "1,600 miles"
+    },
+    {
+      id: 36,
+      title: "Port Crane Boom Section",
+      category: "equipment",
+      description: "Specialized transport of a long crane boom section from port",
+      image: "/gallery38.jpeg",
+      location: "Long Beach, CA → Savannah, GA",
+      weight: "55,000 lbs",
+      distance: "2,400 miles"
     }
   ];
 
