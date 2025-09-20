@@ -264,6 +264,26 @@ distance: "430 miles (regional haul estimate)",
       location: "Long Beach, CA → Savannah, GA",
       weight: "55,000 lbs",
       distance: "2,400 miles"
+    },
+    {
+      id: 37,
+      title: "Drilling Rig Transport",
+      category: "energy & construction",
+      description: "Blue drilling rig on a multi-axle lowboy trailer. The rig is being relocated for use in energy and infrastructure projects.",
+      image: "/gallery39.jpeg",
+      location: "Alpine, MI to Houston, TX",
+      weight: "95,000 lbs",
+      distance: "1,250 miles"
+    },
+    {
+      id: 38,
+      title: "Oversized Crate Transport",
+category: "specialized freight",
+description: "Oversized crated load secured with tarps and straps on a lowboy trailer. The load is flagged and marked for over-dimensional transport, requiring specialized routing.",
+image: "/gallery40.jpeg",
+location: "Long Beach, CA to Michigan",
+weight: "87,000 lbs",
+distance: "2,250 miles",
     }
   ];
 
