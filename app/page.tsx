@@ -34,7 +34,7 @@ export default function Home() {
     const handleKeyDown = (event: KeyboardEvent) => {
       // Only enable keyboard navigation on desktop (screen width > 768px)
       if (window.innerWidth <= 768) return;
-      
+
       if (event.key === 'ArrowDown' || event.key === 'PageDown') {
         event.preventDefault();
         const nextIndex = Math.min(currentSectionIndex + 1, sections.length - 1);
@@ -149,16 +149,16 @@ export default function Home() {
     <div className="bg-slate-900/95 bg-gradient-to-br from-gray-900 via-slate-800 to-black">
       {/* Navigation Component */}
       {/* <Navigation sections={sections} /> */}
-      
+
       {/* Scroll Indicator */}
       <ScrollIndicator sections={sections} />
-      
+
       {/* Scroll to Top Button */}
       <ScrollToTop />
-      
+
       <div className="snap-container">
         {/* Hero Section - Clipped from Bottom */}
-        <section 
+        <section
           ref={heroRef}
           className="snap-section h-[85vh] md:h-[85vh] h-screen relative bg-gradient-to-r from-gray-900 via-slate-800 to-black text-white overflow-hidden pt-0"
         >
@@ -167,42 +167,42 @@ export default function Home() {
           {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-slate-900/60 to-black/70"></div>
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-          
-          <motion.div 
+
+          <motion.div
             {...variants.slideUp}
             className="relative h-full flex items-center justify-center"
           >
             <div className="text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.h1 
+              <motion.h1
                 {...variants.slideUp}
                 transition={{ ...variants.slideUp.transition, delay: isMobile ? 0 : 0.2 }}
                 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-slate-300 to-white bg-clip-text text-transparent"
               >
-              
+
                 <span className="block text-red-400 text-4xl md:text-6xl mt-4">Reliable Trucking Company</span>
               </motion.h1>
-              <motion.p 
+              <motion.p
                 {...variants.slideUp}
                 transition={{ ...variants.slideUp.transition, delay: isMobile ? 0 : 0.4 }}
                 className="text-xl md:text-3xl text-gray-200 max-w-4xl mx-auto mb-8"
               >
                 Specialized RGN Superload Transportation Across America
               </motion.p>
-              <motion.p 
+              <motion.p
                 {...variants.slideUp}
                 transition={{ ...variants.slideUp.transition, delay: isMobile ? 0 : 0.6 }}
                 className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
               >
                 Based in Dayton, Ohio • Nationwide Coverage • Heavy Haul Specialists
               </motion.p>
-              <motion.div 
+              <motion.div
                 {...variants.slideUp}
                 transition={{ ...variants.slideUp.transition, delay: isMobile ? 0 : 0.8 }}
                 className="flex flex-col sm:flex-row gap-6 justify-center"
               >
-                <motion.button 
+                <motion.button
                   {...variants.buttonScale}
-                  className="bg-gradient-to-r from-blue-600 to-slate-700 text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30" 
+                  className="bg-gradient-to-r from-blue-600 to-slate-700 text-white px-10 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30"
                   onClick={() => {
                     document.getElementById('get-in-touch')?.scrollIntoView({ behavior: 'smooth' });
                   }}
@@ -210,9 +210,9 @@ export default function Home() {
                   Get Quote
                 </motion.button>
                 <Link href="/gallery">
-                  <motion.button 
+                  <motion.button
                     {...variants.buttonScale}
-                    className="border-2 border-blue-400/50 text-blue-400 px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-400/10 backdrop-blur-sm transition-all duration-300" 
+                    className="border-2 border-blue-400/50 text-blue-400 px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-400/10 backdrop-blur-sm transition-all duration-300"
                   >
                     View Fleet
                   </motion.button>
@@ -221,7 +221,7 @@ export default function Home() {
             </div>
           </motion.div>
           {/* Scroll indicator */}
-          <motion.div 
+          <motion.div
             {...variants.fadeIn}
             transition={{ ...variants.fadeIn.transition, delay: isMobile ? 0 : 1.5 }}
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
@@ -241,18 +241,18 @@ export default function Home() {
               </motion.div>
             </div>
           </motion.div>
-          
+
           {/* Truck silhouette overlay */}
           <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-gray-900 to-transparent"></div>
         </section>
 
         {/* Services Section - Compact */}
-        <section 
+        <section
           ref={servicesRef}
           className="snap-section min-h-screen md:h-screen bg-gradient-to-br from-slate-800 via-gray-900 to-black flex items-center justify-center p-0"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <motion.div 
+            <motion.div
               {...variants.slideUp}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -267,8 +267,8 @@ export default function Home() {
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {services.map((service, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ y: isMobile ? 0 : 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: isMobile ? 0.2 : 0.8, delay: isMobile ? 0 : index * 0.1 }}
@@ -296,12 +296,12 @@ export default function Home() {
         </section>
 
         {/* Gallery Section */}
-        <section 
+        <section
           ref={galleryRef}
           className="snap-section min-content bg-gradient-to-b from-slate-800 to-gray-900 py-6"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <motion.div 
+            <motion.div
               initial={{ y: isMobile ? 0 : 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: isMobile ? 0.2 : 0.8 }}
@@ -317,8 +317,8 @@ export default function Home() {
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {galleryProjects.map((project, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   initial={{ y: isMobile ? 0 : 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: isMobile ? 0.2 : 0.8, delay: isMobile ? 0 : index * 0.1 }}
@@ -345,11 +345,11 @@ export default function Home() {
                       <h3 className="text-xl font-bold text-white">{project.title}</h3>
                     </div>
                     <p className="text-gray-300 mb-4">{project.description}</p>
-                    
+
                     {/* Expandable Details */}
                     <AnimatePresence>
                       {expandedProject === project.id && (
-                        <motion.div 
+                        <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -384,19 +384,19 @@ export default function Home() {
                             </div>
                           </div>
                           <Link href="/contact">
-                            <motion.button 
+                            <motion.button
                               whileHover={isMobile ? {} : { scale: 1.05 }}
                               whileTap={isMobile ? {} : { scale: 0.95 }}
-                              className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-2 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30" 
-                            > 
+                              className="w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white py-2 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 border border-blue-400/30"
+                            >
                               Get Quote for Similar Project
                             </motion.button>
                           </Link>
                         </motion.div>
                       )}
                     </AnimatePresence>
-                    
-                    <motion.button 
+
+                    <motion.button
                       whileHover={isMobile ? {} : { scale: 1.05 }}
                       whileTap={isMobile ? {} : { scale: 0.95 }}
                       onClick={() => {

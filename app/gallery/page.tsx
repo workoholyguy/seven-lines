@@ -284,7 +284,38 @@ image: "/gallery40.jpeg",
 location: "Long Beach, CA to Michigan",
 weight: "87,000 lbs",
 distance: "2,250 miles",
+    },
+    {
+      id: 39,
+      title: "Cat 623B",
+category: "equipment",
+description: "CAT 623B water wagon, a large earthmoving scraper outfitted with a tank for dust control, transported on a multi‑axle lowboy as an oversize/overweight load—secured, permitted, and delivered with precision.",
+image: "/gallery41.jpg",
+location: "From Plains, Taxes to Bakersfield,CA",
+weight: "75,000 lbs",
+distance: "1,080 miles",
+    },
+    {
+      id: 40,
+      title: "Liebherr Crawler Crane Upperworks",
+      category: "equipment",
+      description: "Liebherr LR-series crane superstructure with winches and boom foot section, hauled on a multi‑axle RGN. Over-dimensional/overweight with escort and permits, precision secured for a high‑value heavy-lift move.",
+      image: "/gallery42.jpg", // or use "/gallery38.jpeg"
+      location: "Detroit, MI → Graham, NC",
+      weight: "120,000 lbs (est.)",
+      distance: "740 miles (approx.)"
+    },
+    {
+      id: 41,
+      title: "Fuchs MHL380 Material Handler",
+      category: "equipment",
+      description: "High‑reach Fuchs material handler with telescopic boom and outriggers, transported on a multi‑axle RGN with jeep/dolly. Over‑dimensional/overweight, fully permitted and escort‑controlled for a precision port move.",
+      image: "/gallery43.jpg",
+      location: "Miami, FL → Baton Rouge, LA",
+      weight: "117,000 lbs (est.)",
+      distance: "860 miles (approx.)"
     }
+    
   ];
 
   const filters = [
