@@ -198,12 +198,12 @@ export default function Gallery() {
     {
       id: 23,
       title: "Heavy Equipment Transport",
-category: "logistics",
-description: "A semi-truck hauling large industrial construction machinery on a lowboy trailer, likely for demolition or heavy earth-moving work.",     
-image: "/gallery36.jpg",
-location: "Seattle, WA (near The Home Depot and Port area)",
-weight: "82,000 lbs (estimated with equipment)",
-distance: "430 miles (regional haul estimate)",
+      category: "logistics",
+      description: "A semi-truck hauling large industrial construction machinery on a lowboy trailer, likely for demolition or heavy earth-moving work.",
+      image: "/gallery36.jpg",
+      location: "Seattle, WA (near The Home Depot and Port area)",
+      weight: "82,000 lbs (estimated with equipment)",
+      distance: "430 miles (regional haul estimate)",
     },
     {
       id: 26,
@@ -278,22 +278,22 @@ distance: "430 miles (regional haul estimate)",
     {
       id: 38,
       title: "Oversized Crate Transport",
-category: "specialized freight",
-description: "Oversized crated load secured with tarps and straps on a lowboy trailer. The load is flagged and marked for over-dimensional transport, requiring specialized routing.",
-image: "/gallery40.jpeg",
-location: "Long Beach, CA to Michigan",
-weight: "87,000 lbs",
-distance: "2,250 miles",
+      category: "specialized freight",
+      description: "Oversized crated load secured with tarps and straps on a lowboy trailer. The load is flagged and marked for over-dimensional transport, requiring specialized routing.",
+      image: "/gallery40.jpeg",
+      location: "Long Beach, CA to Michigan",
+      weight: "87,000 lbs",
+      distance: "2,250 miles",
     },
     {
       id: 39,
       title: "Cat 623B",
-category: "equipment",
-description: "CAT 623B water wagon, a large earthmoving scraper outfitted with a tank for dust control, transported on a multi‑axle lowboy as an oversize/overweight load—secured, permitted, and delivered with precision.",
-image: "/gallery41.jpg",
-location: "From Plains, Taxes to Bakersfield,CA",
-weight: "75,000 lbs",
-distance: "1,080 miles",
+      category: "equipment",
+      description: "CAT 623B water wagon, a large earthmoving scraper outfitted with a tank for dust control, transported on a multi‑axle lowboy as an oversize/overweight load—secured, permitted, and delivered with precision.",
+      image: "/gallery41.jpg",
+      location: "From Plains, Taxes to Bakersfield,CA",
+      weight: "75,000 lbs",
+      distance: "1,080 miles",
     },
     {
       id: 40,
@@ -314,8 +314,74 @@ distance: "1,080 miles",
       location: "Miami, FL → Baton Rouge, LA",
       weight: "117,000 lbs (est.)",
       distance: "860 miles (approx.)"
+    },
+    {
+      id: 42,
+      title: "Oversized Crated Industrial Module",
+      category: "specialized freight",
+      description:
+        "Superload transport of a fully crated industrial module—likely a power-generation, HVAC, or manufacturing system—secured with tarps and high-tension chains on a multi-axle lowboy. Over-dimensional width and weight required permits, escort coordination, and precision tie-down handling.",
+      image: "/gallery44.jpeg", // adjust if needed
+      location: "Memphis, TN → Atlanta, GA (est.)",
+      weight: "110,000 lbs (est.)",
+      distance: "430 miles (approx.)"
+    },
+    {
+      id: 43,
+      title: "Vermeer Rock Trencher Transport",
+      category: "equipment",
+      description:
+        "Oversize transport of a Vermeer rock trencher used for pipeline, utility, and quarry operations. The machine’s massive cutter boom and track system require a multi-axle RGN, specialized routing, and certified oversize securement for safe delivery.",
+      image: "/gallery45.jpeg", // replace with your actual path
+      location: "Pennsylvania Construction Corridor → Ohio Pipeline Project (est.)",
+      weight: "115,000–125,000 lbs (est.)",
+      distance: "350 miles (approx.)"
+    },
+    {
+      id: 44,
+      title: "Steel Mill Press Frame Casting",
+      category: "industrial",
+      description:
+        "Transport of a massive steel-mill press frame casting, heavily worn and heat-treated from years of service. The oversized component required a multi-axle RGN, heavy-duty chain securement, and precise routing due to extreme weight and irregular geometry.",
+      image: "/gallery46.jpeg", // replace with actual path
+      location: "Buffalo, NY → Pittsburgh, PA (est.)",
+      weight: "95,000–110,000 lbs (est.)",
+      distance: "220 miles (approx.)"
+    },
+    {
+      id: 45,
+      title: "Power Distribution Module Transport",
+      category: "specialized freight",
+      description:
+        "Transport of a precision-engineered power distribution or energy-storage module housed in a sealed industrial enclosure. The high-value unit required climate-safe handling, multi-point chain securement, and a multi-axle RGN to support over-dimensional weight and electrical safety requirements.",
+      image: "/gallery47.jpeg", // replace with your actual path
+      location: "Los Angeles, CA → Phoenix, AZ (est.)",
+      weight: "65,000–80,000 lbs (est.)",
+      distance: "370 miles (approx.)"
+    },
+    {
+      id: 46,
+      title: "Fuchs MHL Material Handler Transport",
+      category: "equipment",
+      description:
+        "Heavy-haul transport of a Fuchs MHL material handler, a long-reach industrial machine used in scrap yards and port terminals. Its extended boom and upperworks required a multi-axle RGN, specialized securement, and oversize load routing to ensure safe relocation.",
+      image: "/gallery48.jpeg", // replace with actual path
+      location: "Miami, FL → Jacksonville, FL (est.)",
+      weight: "95,000–110,000 lbs (est.)",
+      distance: "350 miles (approx.)"
+    },
+    {
+      id: 47,
+      title: "Cryogenic Control Module Transport",
+      category: "specialized freight",
+      description:
+        "Oversize transport of a cryogenic control or electrical distribution module marked under hazard class 3536. The sealed industrial enclosure required high-security chain securement, careful route planning, and multi-axle support to move this high-value process system safely.",
+      image: "/gallery49.jpeg", // replace with actual image path
+      location: "Houston, TX → Baton Rouge, LA (est.)",
+      weight: "60,000–75,000 lbs (est.)",
+      distance: "260 miles (approx.)"
     }
-    
+
   ];
 
   const filters = [
@@ -330,8 +396,8 @@ distance: "1,080 miles",
     { id: 'power', label: 'Power Plants', icon: '⚡' }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   const containerVariants = {
@@ -410,7 +476,7 @@ distance: "1,080 miles",
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 bg-cover bg-center">
-          <Image 
+          <Image
             src="/gallery1.jpg"
             alt="Gallery Background"
             fill
@@ -420,14 +486,14 @@ distance: "1,080 miles",
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-slate-900/60 to-black/70"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <motion.h1 
+          <motion.h1
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -435,7 +501,7 @@ distance: "1,080 miles",
           >
             Our Fleet & Projects
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -443,7 +509,7 @@ distance: "1,080 miles",
           >
             Showcasing Our Fleet & Excellence in Heavy Haul Transportation
           </motion.p>
-          <motion.div 
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -464,14 +530,14 @@ distance: "1,080 miles",
           </motion.div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         >
           <div className="w-6 h-10 border-2 border-blue-500 rounded-full flex justify-center">
-            <motion.div 
+            <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
               className="w-1 h-3 bg-blue-500 rounded-full mt-2"
@@ -483,7 +549,7 @@ distance: "1,080 miles",
       {/* Filter Section */}
       <section className="py-12 bg-gradient-to-b from-slate-800/50 to-gray-900/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -498,7 +564,7 @@ distance: "1,080 miles",
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -511,11 +577,10 @@ distance: "1,080 miles",
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${
-                  activeFilter === filter.id
-                    ? 'bg-gradient-to-r from-blue-600 to-slate-700 text-white shadow-2xl shadow-blue-500/25 border border-blue-400/30'
-                    : 'bg-slate-700/30 text-gray-300 hover:bg-slate-600/40 backdrop-blur-sm border border-slate-600/50'
-                }`}
+                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${activeFilter === filter.id
+                  ? 'bg-gradient-to-r from-blue-600 to-slate-700 text-white shadow-2xl shadow-blue-500/25 border border-blue-400/30'
+                  : 'bg-slate-700/30 text-gray-300 hover:bg-slate-600/40 backdrop-blur-sm border border-slate-600/50'
+                  }`}
               >
                 <span className="text-lg">{filter.icon}</span>
                 {filter.label}
@@ -541,7 +606,7 @@ distance: "1,080 miles",
                 <motion.div
                   key={project.id}
                   variants={itemVariants}
-                  whileHover={{ 
+                  whileHover={{
                     y: -10,
                     transition: { duration: 0.3 }
                   }}
@@ -551,14 +616,14 @@ distance: "1,080 miles",
                   <div className="relative h-64 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-700/40 to-gray-800/40"></div>
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-slate-800/20"></div>
-                    <Image 
+                    <Image
                       src={project.image}
                       alt={project.title}
                       fill
                       className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                    
+
                     {/* Animated Background Pattern */}
                     <div className="absolute inset-0 opacity-10">
                       <div className="absolute top-4 right-4 w-20 h-20 border-2 border-blue-500/30 rounded-full"></div>
@@ -603,7 +668,7 @@ distance: "1,080 miles",
                     <p className="text-gray-300 mb-4 leading-relaxed text-sm">
                       {project.description}
                     </p>
-                    
+
                     {/* Project Stats */}
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="text-center p-3 bg-slate-700/30 rounded-xl border border-slate-600/50">
@@ -634,7 +699,7 @@ distance: "1,080 miles",
       {/* Stats Section */}
       <section className="py-12 bg-gradient-to-r from-slate-800/50 to-gray-900/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -688,7 +753,7 @@ distance: "1,080 miles",
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
               Let&apos;s discuss your transportation needs and see how we can handle your heavy haul requirements with the same level of expertise and care.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -751,7 +816,7 @@ distance: "1,080 miles",
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  
+
                   {/* Project Number */}
                   <div className="absolute top-4 left-4">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-slate-700 rounded-xl flex items-center justify-center text-white font-bold text-lg border border-blue-400/30">
@@ -772,7 +837,7 @@ distance: "1,080 miles",
                   <h2 className="text-2xl font-bold text-white mb-4">
                     {selectedProject.title}
                   </h2>
-                  
+
                   <p className="text-gray-300 mb-6 leading-relaxed">
                     {selectedProject.description}
                   </p>
