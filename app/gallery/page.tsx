@@ -380,6 +380,94 @@ export default function Gallery() {
       location: "Houston, TX → Baton Rouge, LA (est.)",
       weight: "60,000–75,000 lbs (est.)",
       distance: "260 miles (approx.)"
+    },
+    {
+      id: 48,
+      title: "Forestry Harvester Transport",
+      category: "equipment",
+      description:
+        "Oversize transport of a Tigercat-class forestry harvester with processing head and hydraulic boom, loaded on a multi-axle lowboy. The machine's irregular profile and wide track base required careful chain securement and over-dimensional routing for a safe cross-state delivery.",
+      image: "/gallery50.jpg",
+      location: "Tulsa, OK → Little Rock, AR (est.)",
+      weight: "85,000–95,000 lbs (est.)",
+      distance: "280 miles (approx.)"
+    },
+    {
+      id: 49,
+      title: "Oversized Industrial Enclosure",
+      category: "specialized freight",
+      description:
+        "Heavy-haul transport of a large industrial enclosure—likely a power-generation or data-center module—on a multi-axle RGN. The over-dimensional width and height required escort vehicles, specialized permitting, and precision tie-down in adverse weather conditions.",
+      image: "/gallery51.jpg",
+      location: "Newark, NJ → Hartford, CT (est.)",
+      weight: "90,000–105,000 lbs (est.)",
+      distance: "180 miles (approx.)"
+    },
+    {
+      id: 50,
+      title: "Kobelco Excavator Haul",
+      category: "equipment",
+      description:
+        "Transport of a Kobelco large-class hydraulic excavator on a multi-axle RGN from an equipment depot. The machine's extended boom and counterweight required specialized securement and oversize load clearance through a busy staging yard.",
+      image: "/gallery52.jpg",
+      location: "Columbus, OH → Indianapolis, IN (est.)",
+      weight: "100,000–115,000 lbs (est.)",
+      distance: "175 miles (approx.)"
+    },
+    {
+      id: 51,
+      title: "Turbine Rotor Shaft Transport",
+      category: "industrial",
+      description:
+        "Precision transport of a massive turbine rotor shaft from a power-generation facility. The heat-treated component's extreme length and weight required a specialized flatbed with cradle supports, multi-point securement, and coordinated crane loading at origin.",
+      image: "/gallery53.jpg",
+      location: "Louisville, KY → Knoxville, TN (est.)",
+      weight: "70,000–85,000 lbs (est.)",
+      distance: "260 miles (approx.)"
+    },
+    {
+      id: 52,
+      title: "Tarped High-Value Machinery",
+      category: "specialized freight",
+      description:
+        "Indoor-loaded, fully tarped high-value industrial machinery secured on a multi-axle lowboy. The sensitive equipment required warehouse-controlled loading, weather-proof wrapping, and chain-and-strap securement to protect against transit vibration and exposure.",
+      image: "/gallery54.jpg",
+      location: "Cleveland, OH → Charlotte, NC (est.)",
+      weight: "75,000–90,000 lbs (est.)",
+      distance: "480 miles (approx.)"
+    },
+    {
+      id: 53,
+      title: "Wind Turbine Component Delivery",
+      category: "energy & construction",
+      description:
+        "On-site delivery of a wind turbine nacelle and drivetrain assembly to an active wind-farm construction zone. The oversize component was crane-offloaded from a multi-axle trailer, requiring close coordination with site crews and mobile crane operators.",
+      image: "/gallery55.jpg",
+      location: "Amarillo, TX → Oklahoma Wind Farm (est.)",
+      weight: "80,000–100,000 lbs (est.)",
+      distance: "320 miles (approx.)"
+    },
+    {
+      id: 54,
+      title: "Generator Module Offload",
+      category: "industrial",
+      description:
+        "Crane-assisted offload of a large industrial generator or power-distribution module from a multi-axle RGN. The sealed white enclosure required precision lift-point rigging, level-ground staging, and careful placement onto prepared foundations.",
+      image: "/gallery56.jpg",
+      location: "Cincinnati, OH → Dayton, OH (est.)",
+      weight: "65,000–80,000 lbs (est.)",
+      distance: "55 miles (approx.)"
+    },
+    {
+      id: 55,
+      title: "Foundation Drill Rig Transport",
+      category: "equipment",
+      description:
+        "Superload transport of a CAT-class rotary foundation drill rig with kelly bar and mast assembly on a multi-axle RGN. The machine's extreme height and weight demanded heavy-duty chain securement, a jeep-and-stinger axle configuration, and full escort coordination.",
+      image: "/gallery57.jpg",
+      location: "Chicago, IL → Detroit, MI (est.)",
+      weight: "130,000–145,000 lbs (est.)",
+      distance: "280 miles (approx.)"
     }
 
   ];
