@@ -517,9 +517,12 @@ export default function Gallery() {
     { id: 'power', label: 'Power Plants', icon: '⚡' }
   ];
 
+  // Newest projects first: ids are assigned in the order projects are added
+  const newestFirst = [...projects].sort((a, b) => b.id - a.id);
+
   const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(project => project.category === activeFilter);
+    ? newestFirst
+    : newestFirst.filter(project => project.category === activeFilter);
 
   const containerVariants = {
     hidden: { opacity: 0 },
