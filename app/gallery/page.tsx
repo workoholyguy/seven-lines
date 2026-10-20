@@ -468,39 +468,6 @@ export default function Gallery() {
       location: "Chicago, IL → Detroit, MI (est.)",
       weight: "130,000–145,000 lbs (est.)",
       distance: "280 miles (approx.)"
-    },
-    {
-      id: 56,
-      title: "Tadano GR-1000XL Rough Terrain Crane",
-      category: "equipment",
-      description:
-        "Heavy-haul transport of a Tadano GR-1000XL 100-ton rough terrain crane on a multi-axle lowboy. The fully assembled crane—boom retracted, counterweights in place—required precision loading, multi-point chain securement at the carrier frame, and oversize permitting due to its substantial weight and over-width footprint.",
-      image: "/gallery76.jpeg",
-      location: "Houston, TX → Tulsa, OK (est.)",
-      weight: "165,000–180,000 lbs (est.)",
-      distance: "490 miles (approx.)"
-    },
-    {
-      id: 57,
-      title: "Tadano Telescopic Crane Relocation",
-      category: "equipment",
-      description:
-        "Dusk departure with a Tadano telescopic crane secured on a multi-axle lowboy behind a 7Lines Peterbilt 567 (P2761). The over-dimensional move required jeep-and-stinger axle configuration, low-clearance routing, and chain-and-strap securement to keep the boom assembly stable across a long-distance interstate run.",
-      image: "/gallery65.jpeg",
-      location: "Memphis, TN → Kansas City, MO (est.)",
-      weight: "140,000–155,000 lbs (est.)",
-      distance: "560 miles (approx.)"
-    },
-    {
-      id: 58,
-      title: "Battery Energy Storage Module Transport",
-      category: "specialized freight",
-      description:
-        "Heavy-haul transport of a containerized battery energy storage system (BESS) module behind a 7Lines Peterbilt 567. The sealed white enclosure—staged at a utility-scale storage yard—required multi-point chain securement on a multi-axle lowboy, oversize-load permitting, and careful routing to protect the high-value energy infrastructure unit.",
-      image: "/gallery82.jpeg",
-      location: "Las Vegas, NV → Phoenix, AZ (est.)",
-      weight: "70,000–85,000 lbs (est.)",
-      distance: "300 miles (approx.)"
     }
 
   ];
